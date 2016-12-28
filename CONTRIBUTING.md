@@ -6,10 +6,11 @@ and patches.
 
 ## Communication
 
-XXX Add communication forums
-
-If you're not sure about anything, please open an issue and ask, or
-e-mail the project founder <preaction@cpan.org> or [talk to us on IRC on
+If you're not sure about anything, please [open an issue on Github
+issues](http://github.com/cpan-testers/cpantesters-backend/issues) and ask, or ask
+the [CPAN Testers Discuss mailing
+list](http://lists.perl.org/list/cpan-testers-discuss.html), or
+e-mail the project leader <preaction@cpan.org> or [talk to us on IRC on
 irc.perl.org channel #cpantesters-discuss](https://chat.mibbit.com/?channel=%23cpantesters-discuss&server=irc.perl.org)!
 
 ## Standard of Conduct
@@ -28,10 +29,20 @@ Remember, all the people who contribute to this project are volunteers.
 
 ## About this Project
 
+The [CPAN Testers project](http://cpantesters.org) is an effort to
+ensure the stability and reliability of Perl and CPAN by running the
+test suites of uploaded CPAN distributions on various Perl versions,
+OSes, and hardware; collecting the results in a database; and alerting
+distribution authors when there is a test failure.
+
 ### Project Goals
 
-XXX Add project goals
-
+The CPAN Testers Backend handles all the data processing that turns the
+incoming test reports into useful information to be consumed by users of
+the API and web application. The goal of this subproject is to contain
+all the backend code and support routines needed to manage the CPAN
+Testers data (delegating to the CPAN::Testers::Schema as much as
+possible).
 
 ### Repository Layout
 
@@ -44,11 +55,8 @@ Modules are located in the `lib/` directory. Most of the functionality
 of the project should be in a module. If the functionality should be
 available to users from a script, the script should call the module.
 
-#### `bin/`
-
-Command-line scripts go in the `bin/` directory. Most of the real
-functionality of these should be in a library, but these scripts must
-call the library function and document the command-line interface.
+Many of the modules in this project are executable modules using the
+[Beam::Runner](http://metacpan.org/pod/Beam::Runner) framework.
 
 #### `t/`
 
@@ -68,6 +76,23 @@ code are stored in `share/`. This includes default config files, default
 content, informational files, read-only databases, and other such. This
 project uses [File::Share](http://metacpan.com/pod/File::Share) to
 locate these files at run-time.
+
+#### `etc/`
+
+This directory contains additional things that aren't examples (which
+would go in `eg/`), but also must not be part of the CPAN distribution
+(which would go in `share/`).
+
+##### `etc/container/`
+
+The files in this directory are
+[Beam::Wire](http://metacpan.org/pod/Beam::Wire) container files which
+are used to configure the various tasks that are available to run.
+
+By adding this directory to [the BEAM_PATH environment
+variable](http://metacpan.org/pod/beam#BEAM_PATH), the container files
+will be listed by the `beam list` command, making it easy to see what
+tasks are available.
 
 ## What to Contribute
 
@@ -119,8 +144,6 @@ cpan App::cpanminus
 ```
 
 You may need to be root or Administrator to install cpanminus.
-
-XXX Add this for Perl version requirements
 
 This project also requires Perl version 5.24. If your Perl is not recent
 enough, you can install a new version of Perl in a local directory by
