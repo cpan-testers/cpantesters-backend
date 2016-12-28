@@ -1,0 +1,5 @@
+
+to_new_metabase:
+    $class: CPAN::Testers::Backend::Migrate::ToNewMetabase
+
+
