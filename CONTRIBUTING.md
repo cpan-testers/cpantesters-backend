@@ -94,6 +94,11 @@ variable](http://metacpan.org/pod/beam#BEAM_PATH), the container files
 will be listed by the `beam list` command, making it easy to see what
 tasks are available.
 
+##### `etc/runit/`
+
+These are [runit](smarden.org/runit/) service files used to run
+processing daemons.
+
 ## What to Contribute
 
 ### Comments
