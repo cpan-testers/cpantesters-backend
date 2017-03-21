@@ -1,3 +1,4 @@
+$summary: Routines to migrate data to/from other databases
 
 to_new_metabase:
     $class: CPAN::Testers::Backend::Migrate::ToNewMetabase
