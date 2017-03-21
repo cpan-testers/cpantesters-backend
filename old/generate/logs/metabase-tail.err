@@ -1,0 +1,489 @@
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 107.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 107.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 113.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 113.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 113.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 113.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 113.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 107.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 113.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 113.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+DBD::mysql::st execute failed: Table './cpanstats/ixlatest' is marked as crashed and should be repaired at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 175.
+err=Table './cpanstats/ixlatest' is marked as crashed and should be repaired, sql=[SELECT author,dist,version FROM ixlatest], args[] at lib/CPAN/Testers/Data/Generator.pm line 1028.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+DBD::mysql::st execute failed: Table './cpanstats/uploads' is marked as crashed and last (automatic?) repair failed at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 175.
+err=Table './cpanstats/uploads' is marked as crashed and last (automatic?) repair failed, sql=[SELECT dist,version,type FROM uploads], args[] at lib/CPAN/Testers/Data/Generator.pm line 1019.
+DBD::mysql::st execute failed: Table './cpanstats/uploads' is marked as crashed and last (automatic?) repair failed at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 175.
+err=Table './cpanstats/uploads' is marked as crashed and last (automatic?) repair failed, sql=[SELECT dist,version,type FROM uploads], args[] at lib/CPAN/Testers/Data/Generator.pm line 1019.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+DBD::mysql::st execute failed: Table './cpanstats/ixlatest' is marked as crashed and should be repaired at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 175.
+err=Table './cpanstats/ixlatest' is marked as crashed and should be repaired, sql=[SELECT author,dist,version FROM ixlatest], args[] at lib/CPAN/Testers/Data/Generator.pm line 1053.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+DBD::mysql::st execute failed: Table './cpanstats/ixlatest' is marked as crashed and should be repaired at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 175.
+err=Table './cpanstats/ixlatest' is marked as crashed and should be repaired, sql=[SELECT author,dist,version FROM ixlatest], args[] at lib/CPAN/Testers/Data/Generator.pm line 1053.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Can't connect to sdb.amazonaws.com:80 (timeout)
+
+LWP::Protocol::http::Socket: connect: timeout at /usr/local/share/perl/5.14.2/LWP/Protocol/http.pm line 51.
+	...caught at /usr/local/share/perl/5.14.2/SimpleDB/Client.pm line 224.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+DBD::mysql::st execute failed: Table './cpanstats/uploads' is marked as crashed and should be repaired at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 175.
+err=Table './cpanstats/uploads' is marked as crashed and should be repaired, sql=[SELECT uploadid,dist,version,type FROM uploads], args[] at lib/CPAN/Testers/Data/Generator.pm line 1055.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) at /usr/local/share/perl/5.14.2/CPAN/Testers/Common/DBUtils.pm line 523.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Can't call method "tail" on an undefined value at bin/cpanstats line 35.
+Can't call method "tail" on an undefined value at bin/cpanstats line 35.
+Can't call method "tail" on an undefined value at bin/cpanstats line 35.
+Can't call method "tail" on an undefined value at bin/cpanstats line 35.
+Can't call method "tail" on an undefined value at bin/cpanstats line 35.
+Can't call method "tail" on an undefined value at bin/cpanstats line 35.
+Can't call method "tail" on an undefined value at bin/cpanstats line 35.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot Unbalanced close tag <SelectResponse> depth=3
+Force tag close <Name> at depth 3 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <Item> at depth 2 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResult> at depth 1 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResponse> at depth 0 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 10Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Unbalanced close tag <SelectResponse> depth=1
+Force tag close <SelectResult> at depth 1 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResponse> at depth 0 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Unbalanced close tag <SelectResponse> depth=3
+Force tag close <Name> at depth 3 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <Item> at depth 2 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResult> at depth 1 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResponse> at depth 0 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Unbalanced close tag <SelectResponse> depth=3
+Force tag close <Name> at depth 3 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <Item> at depth 2 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResult> at depth 1 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResponse> at depth 0 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metCannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Lost connection to MySQL server at 'reading authorization packet', system error: 104 at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=cpanstats;host=localhost]: DBI connect('database=cpanstats;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 115.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 538.
+ at lib/CPAN/Testers/Data/Generator.pm line 109.
+Cannot connect to DB [dbi:mysql:database=metabase;host=localhost]: DBI connect('database=metabase;host=localhost','dandan',...) failed: Too many connections at /usr/local/share/perl/5.20DBD::mysql::st execute failed: Table './cpanstats/ixlatest' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/ixlatest' is marked as crashed and should be repaired, sql=[SELECT author,dist,version,uploadid FROM ixlatest], args[] at lib/CPAN/Testers/Data/Generator.pm line 1065.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanDBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Table './cpanstats/perl_version' is marked as crashed and should be repaired at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Table './cpanstats/perl_version' is marked as crashed and should be repaired, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+DBD::mysql::st execute failed: Lost connection to MySQL server during query at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=Lost connection to MySQL server during query, sql=[SELECT uploadid,dist,version,type FROM uploads], args[] at lib/CPAN/Testers/Data/Generator.pm line 1055.
+Can't connect to sdb.amazonaws.com:80
+
+Connection timed out at /usr/local/share/perl/5.20.2/LWP/Protocol/http.pm line 47.
+	...caught at /usr/local/share/perl/5.20.2/SimpleDB/Client.pm line 224.
+DBD::mysql::st execute failed: MySQL server has gone away at /usr/local/share/perl/5.20.2/CPAN/Testers/Common/DBUtils.pm line 176.
+err=MySQL server has gone away, sql=[SELECT * FROM perl_version], args[] at lib/CPAN/Testers/Data/Generator.pm line 1075.
+Unbalanced close tag <SelectResponse> depth=2
+Force tag close <Item> at depth 2 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResult> at depth 1 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
+Force tag close <SelectResponse> at depth 0 at /usr/local/lib/x86_64-linux-gnu/perl/5.20.2/XML/Fast.pm line 28.
