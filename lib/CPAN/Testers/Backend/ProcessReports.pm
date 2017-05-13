@@ -100,6 +100,20 @@ sub run( $self, @args ) {
 
 }
 
+=method find_unprocessed_reports
+Returns a list of L<CPAN::Testers::Schema::ResultSet::TestReport>
+objects for reports that are not in the cpanstats table.
+=cut
+
+sub find_unprocessed_reports( $self ) {
+    my $schema = $self->schema;
+    my $stats = $schema->resultset('Stats');
+    my $reports = $schema->resultset('TestReport')->search({
+      id => { -not_in => $stats->get_column('guid')->as_query },
+    });
+    return $reports->all;
+}
+
 #=method _send_email
 #
 #   $self->_send_email(
