@@ -69,6 +69,10 @@ task deploy =>
         file '~/etc/container',
             ensure => 'directory';
         sync_up 'etc/container' => '~/etc/container';
+        for my $file ( qw( .profile .bash_profile ) ) {
+            append_if_no_such_line '/home/cpantesters/' . $file,
+                'export BEAM_PATH=$HOME/etc/container';
+        }
     };
 
 =head2 deploy_dev
@@ -103,6 +107,10 @@ task deploy_dev =>
         file '~/etc/container',
             ensure => 'directory';
         sync_up 'etc/container' => '~/etc/container';
+        for my $file ( qw( .profile .bash_profile ) ) {
+            append_if_no_such_line '/home/cpantesters/' . $file,
+                'export BEAM_PATH=$HOME/etc/container';
+        }
     };
 
 #######################################################################
