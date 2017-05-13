@@ -50,9 +50,6 @@ our %IMPORT_BUNDLES = (
         'Log::Any' => [qw( $LOG )],
         'Log::Any::Adapter' => [qw( Syslog )],
         'Getopt::Long' => [qw( GetOptionsFromArray )],
-        sub( $bundles, $args ) {
-            Moo::Role->apply_roles_to_package( $args->{package}, 'Beam::Runnable' );
-        },
     ],
     Test => [
         'Test::More',
