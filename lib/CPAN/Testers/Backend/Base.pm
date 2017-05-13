@@ -40,7 +40,7 @@ use experimental 'signatures';
 our @IMPORT_MODULES = (
     'strict', 'warnings',
     feature => [qw( :5.24 signatures refaliasing )],
-    '-warnings' => [qw( experimental::signatures experimental::refaliasing )],
+    '>-warnings' => [qw( experimental::signatures experimental::refaliasing )],
 );
 
 our %IMPORT_BUNDLES = (
