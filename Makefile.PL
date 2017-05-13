@@ -17,8 +17,13 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.024",
   "NAME" => "CPAN::Testers::Backend",
   "PREREQ_PM" => {
-    "Beam::Runner" => 0,
-    "CPAN::Testers::Schema" => "0.004"
+    "Beam::Runner" => "0.010",
+    "Beam::Wire" => "1.020",
+    "CPAN::Testers::Schema" => "0.008",
+    "DBI" => 0,
+    "Getopt::Long" => "2.36",
+    "Import::Base" => "0.012",
+    "Log::Any" => "1.046"
   },
   "TEST_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0,
@@ -29,18 +34,23 @@ my %WriteMakefileArgs = (
   },
   "VERSION" => "0.001",
   "test" => {
-    "TESTS" => "t/*.t"
+    "TESTS" => "t/*.t t/migrate/*.t"
   }
 );
 
 
 my %FallbackPrereqs = (
-  "Beam::Runner" => 0,
-  "CPAN::Testers::Schema" => "0.004",
+  "Beam::Runner" => "0.010",
+  "Beam::Wire" => "1.020",
+  "CPAN::Testers::Schema" => "0.008",
+  "DBI" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
+  "Getopt::Long" => "2.36",
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
+  "Import::Base" => "0.012",
+  "Log::Any" => "1.046",
   "Test::More" => "1.001005"
 );
 

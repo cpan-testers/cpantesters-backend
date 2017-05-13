@@ -1,5 +1,10 @@
-requires "Beam::Runner" => "0";
-requires "CPAN::Testers::Schema" => "0.004";
+requires "Beam::Runner" => "0.010";
+requires "Beam::Wire" => "1.020";
+requires "CPAN::Testers::Schema" => "0.008";
+requires "DBI" => "0";
+requires "Getopt::Long" => "2.36";
+requires "Import::Base" => "0.012";
+requires "Log::Any" => "1.046";
 requires "perl" => "5.024";
 
 on 'test' => sub {

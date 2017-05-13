@@ -18,6 +18,7 @@
          "eg",
          "examples",
          "inc",
+         "old",
          "share",
          "t",
          "xt"
@@ -31,8 +32,13 @@
       },
       "runtime" : {
          "requires" : {
-            "Beam::Runner" : "0",
-            "CPAN::Testers::Schema" : "0.004",
+            "Beam::Runner" : "0.010",
+            "Beam::Wire" : "1.020",
+            "CPAN::Testers::Schema" : "0.008",
+            "DBI" : "0",
+            "Getopt::Long" : "2.36",
+            "Import::Base" : "0.012",
+            "Log::Any" : "1.046",
             "perl" : "5.024"
          }
       },
@@ -50,16 +56,16 @@
       }
    },
    "provides" : {
-      "CPAN::Testers::API::Base" : {
-         "file" : "lib/CPAN/Testers/Backend/Base.pm",
-         "version" : "0.001"
-      },
       "CPAN::Testers::Backend" : {
          "file" : "lib/CPAN/Testers/Backend.pm",
          "version" : "0.001"
       },
-      "CPAN::Testers::Backend::Migrate::ToNewMetabase" : {
-         "file" : "lib/CPAN/Testers/Backend/Migrate/ToNewMetabase.pm",
+      "CPAN::Testers::Backend::Base" : {
+         "file" : "lib/CPAN/Testers/Backend/Base.pm",
+         "version" : "0.001"
+      },
+      "CPAN::Testers::Backend::Migrate::MetabaseUsers" : {
+         "file" : "lib/CPAN/Testers/Backend/Migrate/MetabaseUsers.pm",
          "version" : "0.001"
       }
    },
