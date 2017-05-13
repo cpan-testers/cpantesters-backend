@@ -18,6 +18,7 @@ will be migrated.
 =cut
 
 use CPAN::Testers::Backend::Base 'Runnable';
+with 'Beam::Runnable';
 
 =attr metabase_dbh
 
@@ -44,7 +45,18 @@ has schema => (
 );
 
 sub run( $self, @args ) {
+    my @from_users = $self->metabase_dbh->selectall_array( 'SELECT resource,fullname,email FROM testers_email ORDER BY id ASC', { Slice => {} } );
 
+    # Save the last user for this GUID
+    my %users;
+    for \my %user ( @from_users ) {
+        $users{ $user{resource} } = \%user;
+    }
+
+    # Update the user in the mapping table
+    for \my %user ( values %users ) {
+        $self->schema->resultset( 'MetabaseUser' )->update_or_create( \%user );
+    }
 }
 
 1;
