@@ -43,7 +43,7 @@ set 'dist_name' => 'CPAN-Testers-Backend';
 # Environments
 # The Vagrant VM for development purposes
 environment vm => sub {
-    group api => '192.168.127.127'; # the Vagrant VM IP
+    group backend => '192.168.127.127'; # the Vagrant VM IP
     set 'no_sudo_password' => 1;
 };
 
