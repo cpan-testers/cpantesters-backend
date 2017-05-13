@@ -35,6 +35,7 @@ feature|perlsub/Signatures>.
 use strict;
 use warnings;
 use base 'Import::Base';
+use experimental 'signatures';
 
 our @IMPORT_MODULES = (
     'strict', 'warnings',
@@ -43,6 +44,16 @@ our @IMPORT_MODULES = (
 );
 
 our %IMPORT_BUNDLES = (
+    Runnable => [
+        'Moo',
+        'Types::Standard' => [qw( InstanceOf )],
+        'Log::Any' => [qw( $LOG )],
+        'Log::Any::Adapter' => [qw( Syslog )],
+        'Getopt::Long' => [qw( GetOptionsFromArray )],
+        sub( $bundles, $args ) {
+            Moo::Role->apply_roles_to_package( $args->{package}, 'Beam::Runnable' );
+        },
+    ],
     Test => [
         'Test::More',
     ],
