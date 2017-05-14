@@ -27,7 +27,8 @@ use warnings;
 use experimental 'signatures', 'postderef';
 use Moo;
 use Types::Standard qw( Str InstanceOf );
-use Log::Any;
+use Log::Any '$LOG';
+use Log::Any::Adapter 'Syslog';
 with 'Beam::Runnable';
 
 =attr schema
@@ -69,19 +70,6 @@ C<lifecycle: eager>. By default, logs are routed to syslog using
 L<Log::Any::Adapter::Syslog>.
 =cut
 
-has log => (
-    is => 'lazy',
-    default => sub ( $self ) {
-        return Log::Any->get_logger( blessed $self );
-    },
-);
-
-#=attr _testers
-#
-# A map of metabase GUID to tester e-mail
-#
-#=cut
-
 has _testers => (
     is => 'lazy',
     default => sub {
@@ -95,9 +83,22 @@ Called by L<Beam::Runner> or L<Beam::Minion>.
 =cut
 
 sub run( $self, @args ) {
-    require Log::Any::Adapter;
-    Log::Any::Adapter->set_adapter( 'Syslog' );
+    my $stats = $self->schema->resultset('Stats');
+    my @reports = $self->find_unprocessed_reports;
+    $LOG->info('Found ' . @reports . ' unprocessed report(s)');
+    my $skipped = 0;
 
+    for my $report (@reports) {
+        local $@;
+        my $success = eval { $stats->insert_test_report($report); 1 };
+        unless ($success) {
+            my $guid = $report->id;
+            $LOG->warn("Unable to process report GUID $guid. Skipping.");
+            $skipped++;
+        }
+    }
+
+    $LOG->info("Skipped $skipped unprocessed report(s)") if $skipped;
 }
 
 =method find_unprocessed_reports

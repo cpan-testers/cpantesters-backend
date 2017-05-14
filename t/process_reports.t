@@ -1,3 +1,6 @@
+use Log::Any::Test;
+use Log::Any '$LOG';
+
 use CPAN::Testers::Backend::Base 'Test';
 use CPAN::Testers::Schema;
 use CPAN::Testers::Backend::ProcessReports;
@@ -5,6 +8,7 @@ use CPAN::Testers::Backend::ProcessReports;
 my $class = 'CPAN::Testers::Backend::ProcessReports';
 my $schema = CPAN::Testers::Schema->connect( 'dbi:SQLite::memory:', undef, undef, { ignore_version => 1 } );
 $schema->deploy;
+my $pr = $class->new(schema => $schema, from => 'demo@test.com');
 
 $schema->resultset('Stats')->create({
     id => 82067962,
@@ -80,10 +84,58 @@ $schema->resultset('TestReport')->create({
 });
 
 subtest find_unprocessed_reports => sub {
-    my $pr = $class->new(schema => $schema, from => 'demo@test.com');
     my @to_process = $pr->find_unprocessed_reports;
     is @to_process, 1, 'one unprocessed result';
     is $to_process[0]->id, 'cfa81824-3343-11e7-b830-917e22bfee97', 'correct id to be processed';
+};
+
+subtest run => sub {
+    subtest 'check that the initial scenario is valid' => sub {
+        my $reports = $schema->resultset('TestReport')->count;
+        my $stats   = $schema->resultset('Stats')->count;
+        isnt $reports, $stats, 'test that stats and test reports are unequal in count';
+        my @to_process = $pr->find_unprocessed_reports;
+        isnt @to_process, 0, 'some reports are not processed';
+    };
+
+    # the lack of an upload causes a test report to skip migration
+    $LOG->clear;
+    $pr->run;
+
+    subtest 'check that the skip works' => sub {
+        $LOG->contains_ok(qr'found 1'i, 'found message was logged');
+        $LOG->contains_ok(qr'skipping'i, 'individual skip message was logged');
+        $LOG->contains_ok(qr'skipped 1'i, 'skipped message was logged');
+        my $reports = $schema->resultset('TestReport')->count;
+        my $stats   = $schema->resultset('Stats')->count;
+        isnt $reports, $stats, 'test that stats and test reports are unequal in count';
+        my @to_process = $pr->find_unprocessed_reports;
+        isnt @to_process, 0, 'some reports are not processed';
+    };
+
+    $schema->resultset('Upload')->create({
+        uploadid => 169497,
+        type => 'cpan',
+        author => 'YUKI',
+        dist => 'Sorauta-SVN-AutoCommit',
+        version => 0.02,
+        filename => 'Sorauta-SVN-AutoCommit-0.02.tar.gz',
+        released => 1327657454,
+    });
+
+    # now that the upload is created the run should fully process
+    $LOG->clear;
+    $pr->run;
+
+    subtest 'check that the final scenario is correct' => sub {
+        $LOG->contains_ok(qr'found 1'i, 'found message was logged');
+        $LOG->does_not_contain_ok(qr'skip'i, 'no skip message was logged');
+        my $reports = $schema->resultset('TestReport')->count;
+        my $stats   = $schema->resultset('Stats')->count;
+        is $reports, $stats, 'test that stats and tests are now equal in count';
+        my @to_process = $pr->find_unprocessed_reports;
+        is @to_process, 0, 'no reports remain to be processed';
+    };
 };
 
 done_testing;
