@@ -1,3 +1,17 @@
+
+=head1 DESCRIPTION
+
+This test ensures that raw test reports from the C<test_reports> table
+are processed into summary rows in the C<cpanstats> table. We also test
+that some backwards-compatibility layers are kept, like updating the old
+local C<metabase> cache.
+
+=head1 SEE ALSO
+
+L<CPAN::Testers::Backend::ProcessReports>
+
+=cut
+
 use Log::Any::Test;
 use Log::Any '$LOG';
 
