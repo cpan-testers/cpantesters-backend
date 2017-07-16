@@ -30,8 +30,8 @@ L<CPAN::Testers::Backend>, L<CPAN::Testers::Schema>, L<Beam::Runnable>
 
 use v5.24;
 use warnings;
-use experimental 'signatures', 'postderef';
 use Moo;
+use experimental 'signatures', 'postderef';
 use Types::Standard qw( Str InstanceOf );
 use Log::Any '$LOG';
 use Log::Any::Adapter 'Syslog';
