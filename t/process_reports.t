@@ -22,7 +22,32 @@ use CPAN::Testers::Backend::ProcessReports;
 my $class = 'CPAN::Testers::Backend::ProcessReports';
 my $schema = CPAN::Testers::Schema->connect( 'dbi:SQLite::memory:', undef, undef, { ignore_version => 1 } );
 $schema->deploy;
-my $pr = $class->new(schema => $schema, from => 'demo@test.com');
+
+use DBI;
+my $metabase_dbh = DBI->connect( 'dbi:SQLite::memory:', undef, undef, { RaiseError => 1 } );
+$metabase_dbh->do(q{
+    CREATE TABLE `metabase` (
+        `guid` CHAR(36) NOT NULL PRIMARY KEY,
+        `id` INT(10) NOT NULL,
+        `updated` VARCHAR(32) DEFAULT NULL,
+        `report` BINARY NOT NULL,
+        `fact` BINARY
+    )
+});
+$metabase_dbh->do(q{
+    CREATE TABLE `testers_email` (
+        `id` INTEGER PRIMARY KEY,
+        `resource` VARCHAR(64) NOT NULL,
+        `fullname` VARCHAR(255) NOT NULL,
+        `email` VARCHAR(255) DEFAULT NULL
+    )
+});
+
+my $pr = $class->new(
+    schema => $schema,
+    from => 'demo@test.com',
+    metabase_dbh => $metabase_dbh,
+);
 
 $schema->resultset('Stats')->create({
     id => 82067962,
@@ -65,6 +90,9 @@ $schema->resultset('TestReport')->create({
         },
         result => {
             grade => 'FAIL',
+            output => {
+                uncategorized => 'Test report',
+            },
         },
     },
 });
@@ -93,6 +121,9 @@ $schema->resultset('TestReport')->create({
         },
         result => {
             grade => 'FAIL',
+            output => {
+                uncategorized => 'Test report',
+            },
         },
     },
 });
@@ -149,9 +180,64 @@ subtest run => sub {
         is $reports, $stats, 'test that stats and tests are now equal in count';
         my @to_process = $pr->find_unprocessed_reports;
         is @to_process, 0, 'no reports remain to be processed';
+
+        my ( $cache_row ) = $metabase_dbh->selectall_array(
+            'SELECT * FROM metabase', { Slice => {} },
+        );
+        ok $cache_row, 'cache row exists';
+        my $cache = parse_metabase_report( $cache_row );
+        isa_ok $cache->{fact}, 'CPAN::Testers::Report';
+        is_deeply $cache->{report}{'CPAN::Testers::Fact::LegacyReport'}{content},
+            {
+                archname => 'x86_64-linux-thread-multi',
+                grade => 'FAIL',
+                osname => 'linux',
+                osversion => '4.8.0-2-amd64',
+                perl_version => '5.20.1',
+                textreport => 'Test report',
+            },
+            'report is correct'
+                or diag explain $cache->{report}{'CPAN::Testers::Fact::LegacyReport'}{content};
+
+        my ( $tester_row ) = $metabase_dbh->selectall_array(
+            'SELECT * FROM testers_email', { Slice => {} },
+        );
+        is $tester_row->{fullname}, 'Andreas J. Koenig', 'tester name is correct';
+        is $tester_row->{email}, 'andreas.koenig.gmwojprw@franz.ak.mind.de', 'tester email is correct';
+
     };
 };
 
 done_testing;
 
+#sub parse_metabase_report
+#
+# This sub undoes the processing that CPAN Testers expects before it is
+# put in the database so we can ensure that the report was submitted
+# correctly.
+#
+# This code is stolen from:
+#   * CPAN::Testers::Data::Generator sub load_fact
+#
+# Once the legacy metabase cache is removed, this sub can be removed
+sub parse_metabase_report {
+    my ( $row ) = @_;
+    my %report;
+
+    my $sereal_zipper = Data::FlexSerializer->new(
+        detect_compression  => 1,
+        detect_sereal       => 1,
+        output_format       => 'sereal'
+    );
+    $report{ fact } = $sereal_zipper->deserialize( $row->{fact} );
+
+    my $json_zipper = Data::FlexSerializer->new(
+        detect_compression  => 1,
+        detect_json         => 1,
+        output_format       => 'json'
+    );
+    $report{ report } = $json_zipper->deserialize( $row->{report} );
+
+    return \%report;
+}
 
