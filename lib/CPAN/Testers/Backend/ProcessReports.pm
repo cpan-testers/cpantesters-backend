@@ -126,6 +126,7 @@ sub run( $self, @args ) {
         unless ($success) {
             my $guid = $report->id;
             $LOG->warn("Unable to process report GUID $guid. Skipping.");
+            $LOG->debug("Error: $@");
             $skipped++;
             next;
         }
@@ -146,7 +147,10 @@ sub find_unprocessed_reports( $self ) {
     my $schema = $self->schema;
     my $stats = $schema->resultset('Stats');
     my $reports = $schema->resultset('TestReport')->search({
-        id => { -not_in => $stats->get_column('guid')->as_query },
+        id => {
+            -not_in => $stats->get_column('guid')->as_query,
+        },
+        report => \[ "->> '\$.environment.language.name'=?", 'Perl 5' ],
     });
     return $reports->all;
 }

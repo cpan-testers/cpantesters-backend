@@ -16,11 +16,23 @@ use Log::Any::Test;
 use Log::Any '$LOG';
 
 use CPAN::Testers::Backend::Base 'Test';
+use Mock::MonkeyPatch;
 use CPAN::Testers::Schema;
 use CPAN::Testers::Backend::ProcessReports;
+eval { require Test::mysqld } or plan skip_all => 'Requires Test::mysqld';
+
+my $mysqld = Test::mysqld->new(
+    my_cnf => {
+        'skip-networking' => '', # no TCP socket
+    },
+) or plan skip_all => $Test::mysqld::errstr;
 
 my $class = 'CPAN::Testers::Backend::ProcessReports';
-my $schema = CPAN::Testers::Schema->connect( 'dbi:SQLite::memory:', undef, undef, { ignore_version => 1 } );
+my $schema = CPAN::Testers::Schema->connect(
+    $mysqld->dsn(dbname => 'test'),
+    undef, undef,
+    { ignore_version => 1 },
+);
 $schema->deploy;
 
 use DBI;
@@ -48,6 +60,16 @@ my $pr = $class->new(
     from => 'demo@test.com',
     metabase_dbh => $metabase_dbh,
 );
+
+$schema->resultset('Upload')->create({
+    uploadid => 169497,
+    type => 'cpan',
+    author => 'YUKI',
+    dist => 'Sorauta-SVN-AutoCommit',
+    version => 0.02,
+    filename => 'Sorauta-SVN-AutoCommit-0.02.tar.gz',
+    released => 1327657454,
+});
 
 $schema->resultset('Stats')->create({
     id => 82067962,
@@ -128,6 +150,38 @@ $schema->resultset('TestReport')->create({
     },
 });
 
+# This process must not handle Perl 6 reports
+$schema->resultset('TestReport')->create({
+    id => 'f0ab4d36-3343-11e7-b830-917e22bfee98',
+    report => {
+        reporter => {
+            name  => 'Zoffix Znet',
+            email => 'zoffix@example.com',
+        },
+        environment => {
+            system => {
+                osname => 'linux',
+                osversion => '4.8.0-2-amd64',
+            },
+            language => {
+                name => 'Perl 6',
+                version => 'v6.c',
+                archname => 'x86_64-linux',
+            },
+        },
+        distribution => {
+            name => 'Foo-Bar',
+            version => '0.01',
+        },
+        result => {
+            grade => 'PASS',
+            output => {
+                uncategorized => 'Test report',
+            },
+        },
+    },
+});
+
 subtest find_unprocessed_reports => sub {
     my @to_process = $pr->find_unprocessed_reports;
     is @to_process, 1, 'one unprocessed result';
@@ -143,41 +197,37 @@ subtest run => sub {
         isnt @to_process, 0, 'some reports are not processed';
     };
 
-    # the lack of an upload causes a test report to skip migration
-    $LOG->clear;
-    $pr->run;
+    subtest 'the lack of an upload causes a test report to skip migration' => sub {
+        $LOG->clear;
+        my $mock = Mock::MonkeyPatch->patch(
+            'CPAN::Testers::Schema::ResultSet::Stats::insert_test_report',
+            sub { die "Oops" },
+        );
+        $pr->run;
 
-    subtest 'check that the skip works' => sub {
-        $LOG->contains_ok(qr'found 1'i, 'found message was logged');
-        $LOG->contains_ok(qr'skipping'i, 'individual skip message was logged');
-        $LOG->contains_ok(qr'skipped 1'i, 'skipped message was logged');
-        my $reports = $schema->resultset('TestReport')->count;
-        my $stats   = $schema->resultset('Stats')->count;
-        isnt $reports, $stats, 'test that stats and test reports are unequal in count';
-        my @to_process = $pr->find_unprocessed_reports;
-        isnt @to_process, 0, 'some reports are not processed';
+        subtest 'check that the skip works' => sub {
+            $LOG->contains_ok(qr'found 1'i, 'found message was logged');
+            $LOG->contains_ok(qr'skipping'i, 'individual skip message was logged');
+            $LOG->contains_ok(qr'skipped 1'i, 'skipped message was logged');
+            my $reports = $schema->resultset('TestReport')->count;
+            my $stats   = $schema->resultset('Stats')->count;
+            isnt $reports, $stats+1, 'test that stats and test reports are unequal in count';
+            my @to_process = $pr->find_unprocessed_reports;
+            isnt @to_process, 0, 'some reports are not processed';
+        };
     };
 
-    $schema->resultset('Upload')->create({
-        uploadid => 169497,
-        type => 'cpan',
-        author => 'YUKI',
-        dist => 'Sorauta-SVN-AutoCommit',
-        version => 0.02,
-        filename => 'Sorauta-SVN-AutoCommit-0.02.tar.gz',
-        released => 1327657454,
-    });
-
-    # now that the upload is created the run should fully process
+    # now that we allow success
     $LOG->clear;
     $pr->run;
 
     subtest 'check that the final scenario is correct' => sub {
         $LOG->contains_ok(qr'found 1'i, 'found message was logged');
         $LOG->does_not_contain_ok(qr'skip'i, 'no skip message was logged');
+        $LOG->does_not_contain_ok(qr'error'i, 'no error message logged');
         my $reports = $schema->resultset('TestReport')->count;
         my $stats   = $schema->resultset('Stats')->count;
-        is $reports, $stats, 'test that stats and tests are now equal in count';
+        is $reports, $stats+1, 'test that stats and tests are now equal in count';
         my @to_process = $pr->find_unprocessed_reports;
         is @to_process, 0, 'no reports remain to be processed';
 
