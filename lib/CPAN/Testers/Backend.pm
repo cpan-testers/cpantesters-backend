@@ -12,6 +12,14 @@ and are configured into executable tasks by L<Beam::Wire> configuration files
 located in C<etc/container>. The tasks are run using L<Beam::Runner>, which
 contains the L<beam> command.
 
+=head1 OVERVIEW
+
+=head2 Logging
+
+All processes should use L<Log::Any> to log important information. Logs will
+be directed to syslog using L<Log::Any::Adapter::Syslog>, configured by
+C<etc/container/common.yml>.
+
 =head1 SEE ALSO
 
 L<Beam::Runner>, L<Beam::Wire>

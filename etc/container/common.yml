@@ -1,4 +1,10 @@
 
+syslog:
+    $class: Log::Any::Adapter
+    $method: set
+    $args:
+        - Syslog
+
 schema:
     $class: CPAN::Testers::Schema
     $method: connect_from_config

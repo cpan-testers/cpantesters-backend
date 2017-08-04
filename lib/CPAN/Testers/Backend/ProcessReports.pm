@@ -34,7 +34,6 @@ use Moo;
 use experimental 'signatures', 'postderef';
 use Types::Standard qw( Str InstanceOf );
 use Log::Any '$LOG';
-use Log::Any::Adapter 'Syslog';
 with 'Beam::Runnable';
 use JSON::MaybeXS qw( decode_json );
 
@@ -50,33 +49,6 @@ has schema => (
     required => 1,
 );
 
-=attr cache
-
-A L<DBI> database handle for the metabase cache. This is temporary
-until all things can be told not to use the metabase cache.
-
-=cut
-
-has cache => (
-    is => 'ro',
-    isa => InstanceOf['DBI::db'],
-    #required => 1,
-    required => 0, # this is temporary for testing
-);
-
-=attr from
-
-An e-mail address to use when sending an error back to the tester that
-submitted a bad report.
-
-=cut
-
-has from => (
-    is => 'ro',
-    isa => Str,
-    required => 1,
-);
-
 =attr metabase_dbh
 
 A L<DBI> object connected to the Metabase cache. This is a legacy database
@@ -89,21 +61,6 @@ has metabase_dbh => (
     is => 'ro',
     isa => InstanceOf['DBI::db'],
     required => 1,
-);
-
-=attr log
-
-To direct logs to a given place, use a L<Log::Any::Adapter> with
-C<lifecycle: eager>. By default, logs are routed to syslog using
-L<Log::Any::Adapter::Syslog>.
-
-=cut
-
-has _testers => (
-    is => 'lazy',
-    default => sub {
-
-    },
 );
 
 =method run
