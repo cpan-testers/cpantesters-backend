@@ -87,7 +87,7 @@ task deploy_dev =>
         my $dist;
         LOCAL {
             Rex::Logger::info( 'Building dist' );
-            run '/usr/bin/env dzil build';
+            run 'dzil build';
             my @dists = sort glob "${dist_name}-*.tar.gz";
             $dist = $dists[-1];
         };
