@@ -66,13 +66,7 @@ task deploy =>
     group => 'backend',
     sub {
         run 'source ~/.profile; cpanm CPAN::Testers::Backend DBD::mysql';
-        file '~/etc/container',
-            ensure => 'directory';
-        sync_up 'etc/container' => '~/etc/container';
-        for my $file ( qw( .profile .bash_profile ) ) {
-            append_if_no_such_line '/home/cpantesters/' . $file,
-                'export BEAM_PATH=$HOME/etc/container';
-        }
+        run_task 'deploy_config', on => connection->server;
     };
 
 =head2 deploy_dev
@@ -93,7 +87,7 @@ task deploy_dev =>
         my $dist;
         LOCAL {
             Rex::Logger::info( 'Building dist' );
-            run 'dzil build';
+            run '/usr/bin/env dzil build';
             my @dists = sort glob "${dist_name}-*.tar.gz";
             $dist = $dists[-1];
         };
@@ -107,9 +101,30 @@ task deploy_dev =>
         if ( $? ) {
             say last_command_output;
         }
+        run_task 'deploy_config', on => connection->server;
+    };
+
+=head2 deploy_config
+
+    rex -E vm deploy_config
+
+Deploy the configuration for the backend, including L<Beam::Wire> container
+files, C<crontab> files, and user profile files.
+
+=cut
+
+task deploy_config =>
+    group => 'backend',
+    sub {
+
+        Rex::Logger::info( 'Syncing container files' );
         file '~/etc/container',
             ensure => 'directory';
         sync_up 'etc/container' => '~/etc/container';
+
+        Rex::Logger::info( 'Syncing crontab files' );
+
+        Rex::Logger::info( 'Ensuring user profile is correct' );
         for my $file ( qw( .profile .bash_profile ) ) {
             append_if_no_such_line '/home/cpantesters/' . $file,
                 'export BEAM_PATH=$HOME/etc/container';
