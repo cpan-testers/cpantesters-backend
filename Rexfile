@@ -123,6 +123,22 @@ task deploy_config =>
         sync_up 'etc/container' => '~/etc/container';
 
         Rex::Logger::info( 'Syncing crontab files' );
+        cron env => 'cpantesters' => add => {
+            BEAM_PATH => '/home/cpantesters/etc/container',
+            PERL5LIB => '/home/cpantesters/perl5/lib/perl5',
+            PATH => '/home/cpantesters/perl5/bin:/opt/local/perlbrew/bin:/opt/local/perlbrew/perls/perl-5.24.0/bin:/usr/local/bin:/usr/bin:/bin',
+            MAILTO => 'doug@preaction.me',
+        };
+        cron_entry 'process-reports',
+            user => 'cpantesters',
+            minute => '*/10',
+            hour => '*',
+            day_of_month => '*',
+            month => '*',
+            day_of_week => '*',
+            ensure => 'present',
+            command => 'beam run report process',
+            ;
 
         Rex::Logger::info( 'Ensuring user profile is correct' );
         for my $file ( qw( .profile .bash_profile ) ) {
