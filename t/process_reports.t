@@ -277,14 +277,14 @@ sub parse_metabase_report {
     my $sereal_zipper = Data::FlexSerializer->new(
         detect_compression  => 1,
         detect_sereal       => 1,
-        output_format       => 'sereal'
+        detect_json         => 1,
     );
     $report{ fact } = $sereal_zipper->deserialize( $row->{fact} );
 
     my $json_zipper = Data::FlexSerializer->new(
         detect_compression  => 1,
         detect_json         => 1,
-        output_format       => 'json'
+        detect_sereal       => 1,
     );
     $report{ report } = $json_zipper->deserialize( $row->{report} );
 
