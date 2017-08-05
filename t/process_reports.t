@@ -88,7 +88,8 @@ $schema->resultset('Stats')->create({
     uploadid => 169497,
 });
 
-$schema->resultset('TestReport')->create({
+my @reports;
+push @reports, $schema->resultset('TestReport')->create({
     id => 'd0ab4d36-3343-11e7-b830-917e22bfee97',
     report => {
         reporter => {
@@ -119,7 +120,7 @@ $schema->resultset('TestReport')->create({
     },
 });
 
-$schema->resultset('TestReport')->create({
+push @reports, $schema->resultset('TestReport')->create({
     id => 'cfa81824-3343-11e7-b830-917e22bfee97',
     report => {
         reporter => {
@@ -255,6 +256,36 @@ subtest run => sub {
         is $tester_row->{fullname}, 'Andreas J. Koenig', 'tester name is correct';
         is $tester_row->{email}, 'andreas.koenig.gmwojprw@franz.ak.mind.de', 'tester email is correct';
 
+    };
+
+    subtest 'reprocess a single report' => sub {
+        $LOG->clear;
+        $reports[0]->report->{result}{grade} = 'PASS';
+        $reports[0]->update({ report => $reports[0]->report });
+
+        $pr->run( $reports[0]->id );
+
+        $LOG->contains_ok(qr're-processing 1 reports'i, 'found message was logged');
+
+        my $stat = $schema->resultset( 'Stats' )->search({ guid => $reports[0]->id })->first;
+        is $stat->state, 'pass', 'stat grade is updated';
+    };
+
+    subtest 'reprocess all reports' => sub {
+        $LOG->clear;
+        $reports[0]->report->{result}{grade} = 'UNKNOWN';
+        $reports[0]->update({ report => $reports[0]->report });
+        $reports[1]->report->{result}{grade} = 'UNKNOWN';
+        $reports[1]->update({ report => $reports[1]->report });
+
+        $pr->run( '--force' );
+
+        $LOG->contains_ok(qr're-processing all reports'i, 'found message was logged');
+
+        my $stat = $schema->resultset( 'Stats' )->search({ guid => $reports[0]->id })->first;
+        is $stat->state, 'unknown', 'stat grade is updated (0)';
+        $stat = $schema->resultset( 'Stats' )->search({ guid => $reports[1]->id })->first;
+        is $stat->state, 'unknown', 'stat grade is updated (1)';
     };
 };
 

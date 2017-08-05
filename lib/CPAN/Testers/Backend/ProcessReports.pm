@@ -4,16 +4,7 @@ our $VERSION = '0.002';
 
 =head1 SYNOPSIS
 
-    # container.yml     - A Beam::Wire container file
-    process_reports:
-        $class: CPAN::Testers::Backend::ProcessReport
-        schema:
-            $class: CPAN::Testers::Schema
-            $method: connect_from_file
-    # Run with Beam::Runner
-    $ beam run process_reports
-    # Run with Beam::Minion
-    $ beam minion run process_reports
+    beam run <container> <task> [--force | -f] [<reportid>...]
 
 =head1 DESCRIPTION
 
@@ -21,6 +12,22 @@ This module is a L<Beam::Runnable> task that reads incoming test reports
 from testers and produces the basic stats needed for the common
 reporting on the website and via e-mail. This is the first step in
 processing test data: All other tasks require this step to be completed.
+
+=head1 ARGUMENTS
+
+=head2 reportid
+
+The IDs of reports to process. If specified, the report will be
+processed whether or not it was processed already (like C<--force>
+option).
+
+=head1 OPTIONS
+
+=head2 --force | -f
+
+Force re-processing of all reports. This will process all of the test
+reports again, so it may be prudent to limit to a set of test reports
+using the C<reportid> argument.
 
 =head1 SEE ALSO
 
@@ -36,6 +43,7 @@ use Types::Standard qw( Str InstanceOf );
 use Log::Any '$LOG';
 with 'Beam::Runnable';
 use JSON::MaybeXS qw( decode_json );
+use Getopt::Long qw( GetOptionsFromArray );
 
 =attr schema
 
@@ -71,9 +79,27 @@ Called by L<Beam::Runner> or L<Beam::Minion>.
 =cut
 
 sub run( $self, @args ) {
+    GetOptionsFromArray(
+        \@args, \my %opt,
+        'force|f',
+    );
+
+    my @reports;
+    if ( $opt{force} && !@args ) {
+        $LOG->info( '--force and no IDs specified: Re-processing all reports' );
+        @reports = $self->find_reports;
+    }
+    elsif ( @args ) {
+        $LOG->info( 'Re-processing ' . @args . ' reports from command-line' );
+        @reports = $self->find_reports( @args );
+    }
+    else {
+        $LOG->info( 'Processing all unprocessed reports' );
+        @reports = $self->find_unprocessed_reports;
+        $LOG->info('Found ' . @reports . ' unprocessed report(s)');
+    }
+
     my $stats = $self->schema->resultset('Stats');
-    my @reports = $self->find_unprocessed_reports;
-    $LOG->info('Found ' . @reports . ' unprocessed report(s)');
     my $skipped = 0;
 
     for my $report (@reports) {
@@ -95,7 +121,7 @@ sub run( $self, @args ) {
 
 =method find_unprocessed_reports
 
-Returns a list of L<CPAN::Testers::Schema::ResultSet::TestReport>
+Returns a list of L<CPAN::Testers::Schema::Result::TestReport>
 objects for reports that are not in the cpanstats table.
 
 =cut
@@ -109,6 +135,31 @@ sub find_unprocessed_reports( $self ) {
         },
         report => \[ "->> '\$.environment.language.name'=?", 'Perl 5' ],
     });
+    return $reports->all;
+}
+
+=method find_reports
+
+    @reports = $self->find_reports;
+    @reports = $self->find_reports( @ids );
+
+Find all the test reports to be processed by this module, optionally
+limited only to the IDs passed-in. Returns a list of
+L<CPAN::Testers::Schema::Result::TestReport> objects.
+
+=cut
+
+sub find_reports( $self, @ids ) {
+    my $reports = $self->schema->resultset( 'TestReport' )->search({
+        report => \[ "->> '\$.environment.language.name'=?", 'Perl 5' ],
+    });
+    if ( @ids ) {
+        $reports = $reports->search({
+            id => {
+                -in => \@ids,
+            },
+        });
+    }
     return $reports->all;
 }
 
@@ -214,7 +265,7 @@ sub write_metabase_cache( $self, $report_row, $stat_row ) {
     my $fact_zip = $sereal_zipper->serialize( $metabase_report );
 
     $self->metabase_dbh->do(
-        'INSERT INTO metabase (guid,id,updated,report,fact) VALUES (?,?,?,?,?)',
+        'REPLACE INTO metabase (guid,id,updated,report,fact) VALUES (?,?,?,?,?)',
         {},
         $guid, $id, $created_epoch, $report_zip, $fact_zip,
     );
