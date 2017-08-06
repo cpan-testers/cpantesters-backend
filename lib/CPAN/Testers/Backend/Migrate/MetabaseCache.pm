@@ -18,6 +18,11 @@ use CPAN::Testers::Backend::Base 'Runnable';
 with 'Beam::Runnable';
 use Getopt::Long qw( GetOptionsFromArray );
 use Data::FlexSerializer;
+use JSON::MaybeXS qw( decode_json );
+use CPAN::Testers::Report;
+use CPAN::Testers::Fact::TestSummary;
+use CPAN::Testers::Fact::LegacyReport;
+
 
 =attr metabase_dbh
 
@@ -120,7 +125,7 @@ This code is stolen from CPAN::Testers::Data::Generator sub load_fact
 
 =cut
 
-my $sereal_zipper = Data::FlexSerializer->new(
+my $zipper = Data::FlexSerializer->new(
     detect_compression  => 1,
     detect_sereal       => 1,
     detect_json         => 1,
@@ -128,9 +133,26 @@ my $sereal_zipper = Data::FlexSerializer->new(
 
 sub parse_metabase_report( $self, $row ) {
     if ( $row->{fact} ) {
-        return $sereal_zipper->deserialize( $row->{fact} );
+        return $zipper->deserialize( $row->{fact} );
     }
-    die "'fact' column not present";
+
+    my $data = $zipper->deserialize( $row->{report} );
+    my $struct = {
+        metadata => {
+            core => {
+                $data->{'CPAN::Testers::Fact::TestSummary'}{metadata}{core}->%*,
+                type => 'CPAN-Testers-Report',
+            },
+        },
+        content => encode_json( [
+            $data->{'CPAN::Testers::Fact::LegacyReport'},
+            $data->{'CPAN::Testers::Fact::TestSummary'},
+        ] ),
+    };
+    #; use Data::Dumper;
+    #; warn Dumper $struct;
+    my $fact = CPAN::Testers::Report->from_struct( $struct );
+    return $fact;
 }
 
 1;
