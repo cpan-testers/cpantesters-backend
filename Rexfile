@@ -123,7 +123,8 @@ task deploy_config =>
         Rex::Logger::info( 'Syncing container files' );
         file '~/etc/container',
             ensure => 'directory';
-        sync_up 'etc/container' => '~/etc/container';
+        sync_up 'etc/container' => '~/etc/container',
+            exclude => [ '*.sw*' ];
 
         Rex::Logger::info( 'Syncing crontab files' );
         cron env => 'cpantesters' => add => {
@@ -148,6 +149,7 @@ task deploy_config =>
             append_if_no_such_line '/home/cpantesters/' . $file,
                 'export BEAM_PATH=$HOME/etc/container';
         }
+
     };
 
 #######################################################################
