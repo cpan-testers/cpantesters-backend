@@ -18,7 +18,7 @@ use CPAN::Testers::Backend::Base 'Runnable';
 with 'Beam::Runnable';
 use Getopt::Long qw( GetOptionsFromArray );
 use Data::FlexSerializer;
-use JSON::MaybeXS qw( decode_json );
+use JSON::MaybeXS qw( encode_json );
 use CPAN::Testers::Report;
 use CPAN::Testers::Fact::TestSummary;
 use CPAN::Testers::Fact::LegacyReport;
@@ -53,25 +53,44 @@ sub run( $self, @args ) {
         \@args, \my %opt,
         'force|f',
     );
-    my $sth;
     if ( $opt{force} && !@args ) {
         $LOG->info( '--force and no IDs specified: Re-processing all cache entries' );
-        $sth = $self->find_entries;
+        my $sth = $self->find_entries;
+        $self->process_sth( $sth );
     }
     elsif ( @args ) {
         $LOG->info( 'Re-processing ' . @args . ' cache entries from command-line' );
-        $sth = $self->find_entries( @args );
+        my $sth = $self->find_entries( @args );
+        $self->process_sth( $sth );
     }
     else {
         $LOG->info( 'Processing all unprocessed cache entries' );
-        $sth = $self->find_unprocessed_entries;
+        my $sth = $self->find_unprocessed_entries;
+        while ( my $count = $self->process_sth( $sth ) ) {
+            $sth = $self->find_unprocessed_entries;
+        }
     }
+    return 0;
+}
 
+=method process_sth
+
+Process the given statement handle full of reports. Returns the number
+of reports processed
+
+=cut
+
+sub process_sth( $self, $sth ) {
     my $rs = $self->schema->resultset( 'TestReport' );
+    my $count = 0;
+    my %ids;
     while ( my $row = $sth->fetchrow_hashref ) {
+        next if $ids{ $row->{guid} }++;
         my $fact = $self->parse_metabase_report( $row );
         $rs->insert_metabase_fact( $fact );
+        $count++;
     }
+    return $count;
 }
 
 =method find_unprocessed_entries
@@ -86,7 +105,7 @@ row hashrefs for reports that are not in the main test report table
 
 sub find_unprocessed_entries( $self ) {
     my $sth = $self->metabase_dbh->prepare(
-        "SELECT * FROM metabase WHERE guid NOT IN ( SELECT id FROM cpanstats.test_report )",
+        "SELECT * FROM metabase WHERE guid NOT IN ( SELECT id FROM cpanstats.test_report ) LIMIT 10000",
     );
     $sth->execute;
     return $sth;
@@ -141,6 +160,7 @@ sub parse_metabase_report( $self, $row ) {
         metadata => {
             core => {
                 $data->{'CPAN::Testers::Fact::TestSummary'}{metadata}{core}->%*,
+                guid => $row->{guid},
                 type => 'CPAN-Testers-Report',
             },
         },
