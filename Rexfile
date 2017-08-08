@@ -141,7 +141,7 @@ task deploy_config =>
             month => '*',
             day_of_week => '*',
             ensure => 'present',
-            command => 'beam run report process',
+            command => 'beam run report process >>$HOME/var/log/report/process.log 2>&1',
             ;
 
         Rex::Logger::info( 'Ensuring user profile is correct' );
