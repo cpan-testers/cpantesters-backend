@@ -116,6 +116,9 @@ files, C<crontab> files, and user profile files.
 task deploy_config =>
     group => 'backend',
     sub {
+        Rex::Logger::info( 'Creating log/pid directories' );
+        file '~/var/run/report', ensure => 'directory';
+        file '~/var/log/report', ensure => 'directory';
 
         Rex::Logger::info( 'Syncing container files' );
         file '~/etc/container',
