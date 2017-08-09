@@ -21,5 +21,4 @@ metabase_dbh:
         - ~
         - AutoCommit: 1
           RaiseError: 1
-          mysql_enable_utf8: 1
 
