@@ -5,6 +5,8 @@ syslog:
     $method: set
     $args:
         - Syslog
+        - options
+        - pid,perror
 
 schema:
     $class: CPAN::Testers::Schema
