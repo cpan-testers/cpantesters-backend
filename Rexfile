@@ -126,6 +126,14 @@ task deploy_config =>
         sync_up 'etc/container' => '~/etc/container',
             exclude => [ '*.sw*' ];
 
+        Rex::Logger::info( 'Syncing service files' );
+        file '~/service',
+            ensure => 'directory';
+        file '~/service/minion',
+            ensure => 'directory';
+        sync_up 'etc/runit/minion' => '~/etc/runit/minion',
+            exclude => [ '*.sw*' ];
+
         Rex::Logger::info( 'Syncing crontab files' );
         cron env => 'cpantesters' => add => {
             BEAM_PATH => '/home/cpantesters/etc/container',
@@ -145,11 +153,16 @@ task deploy_config =>
             ;
 
         Rex::Logger::info( 'Ensuring user profile is correct' );
+        file '~/var/db', ensure => 'directory';
         for my $file ( qw( .profile .bash_profile ) ) {
             append_if_no_such_line '/home/cpantesters/' . $file,
                 'export BEAM_PATH=$HOME/etc/container';
+            append_if_no_such_line '/home/cpantesters/' . $file,
+                'export BEAM_MINION=sqlite:////home/cpantesters/var/db/minion.sqlite';
         }
 
+        Rex::Logger::info( 'Restarting services' );
+        run 'sv restart ~/service/minion';
     };
 
 #######################################################################
