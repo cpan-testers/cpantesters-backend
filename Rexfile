@@ -127,12 +127,12 @@ task deploy_config =>
             exclude => [ '*.sw*' ];
 
         Rex::Logger::info( 'Syncing service files' );
-        file '~/service',
+        file '~/service/minion/log/main',
             ensure => 'directory';
-        file '~/service/minion',
-            ensure => 'directory';
-        sync_up 'etc/runit/minion' => '~/etc/runit/minion',
-            exclude => [ '*.sw*' ];
+        file '~/service/minion/run',
+            source => 'etc/runit/minion/run';
+        file '~/service/minion/log/run',
+            source => 'etc/runit/minion/log/run';
 
         Rex::Logger::info( 'Syncing crontab files' );
         cron env => 'cpantesters' => add => {
