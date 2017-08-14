@@ -90,7 +90,7 @@ sub run( $self, @args ) {
         @reports = $self->find_reports;
     }
     elsif ( @args ) {
-        $LOG->info( 'Re-processing ' . @args . ' reports from command-line' );
+        $LOG->info( 'Processing ' . @args . ' reports from command-line' );
         @reports = $self->find_reports( @args );
     }
     else {
