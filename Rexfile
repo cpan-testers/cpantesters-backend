@@ -127,7 +127,7 @@ task deploy_config =>
             exclude => [ '*.sw*' ];
 
         Rex::Logger::info( 'Syncing service files' );
-        file '~/service/minion/log/main',
+        file '~/service/minion/log',
             ensure => 'directory';
         file '~/service/minion/run',
             source => 'etc/runit/minion/run';
