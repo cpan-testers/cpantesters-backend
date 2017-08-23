@@ -258,14 +258,14 @@ subtest run => sub {
 
     };
 
-    subtest 'reprocess a single report' => sub {
+    subtest 'process a single report' => sub {
         $LOG->clear;
         $reports[0]->report->{result}{grade} = 'PASS';
         $reports[0]->update({ report => $reports[0]->report });
 
         $pr->run( $reports[0]->id );
 
-        $LOG->contains_ok(qr're-processing 1 reports'i, 'found message was logged');
+        $LOG->contains_ok(qr'Processing 1 reports'i, 'found message was logged');
 
         my $stat = $schema->resultset( 'Stats' )->search({ guid => $reports[0]->id })->first;
         is $stat->state, 'pass', 'stat grade is updated';
