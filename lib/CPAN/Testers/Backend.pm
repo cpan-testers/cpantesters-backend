@@ -1,5 +1,5 @@
 package CPAN::Testers::Backend;
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 # ABSTRACT: Backend processes for CPAN Testers data and operations
 
 =head1 DESCRIPTION
