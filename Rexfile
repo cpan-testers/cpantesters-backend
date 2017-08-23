@@ -157,8 +157,9 @@ task deploy_config =>
         for my $file ( qw( .profile .bash_profile ) ) {
             append_if_no_such_line '/home/cpantesters/' . $file,
                 'export BEAM_PATH=$HOME/etc/container';
+            delete_lines_according_to qr{^export BEAM_MINION=}, "/home/cpantesters/" . $file;
             append_if_no_such_line '/home/cpantesters/' . $file,
-                'export BEAM_MINION=sqlite:////home/cpantesters/var/db/minion.sqlite';
+                'export BEAM_MINION="mysql+dsn+dbi:mysql:mysql_read_default_file=~/.cpanstats.cnf;mysql_read_default_group=application"';
         }
 
         Rex::Logger::info( 'Restarting services' );
