@@ -4,7 +4,7 @@ CPAN::Testers::Backend - Backend processes for CPAN Testers data and operations
 
 # VERSION
 
-version 0.001
+version 0.002
 
 # DESCRIPTION
 
@@ -16,6 +16,14 @@ and are configured into executable tasks by [Beam::Wire](https://metacpan.org/po
 located in `etc/container`. The tasks are run using [Beam::Runner](https://metacpan.org/pod/Beam::Runner), which
 contains the [beam](https://metacpan.org/pod/beam) command.
 
+# OVERVIEW
+
+## Logging
+
+All processes should use [Log::Any](https://metacpan.org/pod/Log::Any) to log important information. Logs will
+be directed to syslog using [Log::Any::Adapter::Syslog](https://metacpan.org/pod/Log::Any::Adapter::Syslog), configured by
+`etc/container/common.yml`.
+
 # SEE ALSO
 
 [Beam::Runner](https://metacpan.org/pod/Beam::Runner), [Beam::Wire](https://metacpan.org/pod/Beam::Wire)
@@ -24,9 +32,13 @@ contains the [beam](https://metacpan.org/pod/beam) command.
 
 Doug Bell <preaction@cpan.org>
 
+# CONTRIBUTOR
+
+Joel Berger <joel.a.berger@gmail.com>
+
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2016 by Doug Bell.
+This software is copyright (c) 2017 by Doug Bell.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
