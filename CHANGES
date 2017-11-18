@@ -2,6 +2,8 @@ Changelog for CPAN-Testers-Backend
 
 {{ $NEXT }}
 
+0.003     2017-11-18 16:03:00-06:00 America/Chicago
+
     [Fixed]
 
     - Updated Beam::Minion to v0.007, which allows one worker to be used
