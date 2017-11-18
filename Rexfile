@@ -28,7 +28,7 @@ use Rex::Commands::Sync;
 
 #######################################################################
 # Groups
-group backend => 'cpantesters3.dh.bytemark.co.uk';
+group backend => 'cpantesters4.dh.bytemark.co.uk';
 
 #######################################################################
 # Settings
