@@ -4,7 +4,7 @@ CPAN::Testers::Backend - Backend processes for CPAN Testers data and operations
 
 # VERSION
 
-version 0.002
+version 0.003
 
 # DESCRIPTION
 
@@ -32,9 +32,10 @@ be directed to syslog using [Log::Any::Adapter::Syslog](https://metacpan.org/pod
 
 Doug Bell <preaction@cpan.org>
 
-# CONTRIBUTOR
+# CONTRIBUTORS
 
-Joel Berger <joel.a.berger@gmail.com>
+- James E Keenan <jkeenan@cpan.org>
+- Joel Berger <joel.a.berger@gmail.com>
 
 # COPYRIGHT AND LICENSE
 
