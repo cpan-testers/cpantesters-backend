@@ -15,6 +15,8 @@ requires "Minion::Backend::SQLite" => "0";
 requires "Minion::Backend::mysql" => "0.11";
 requires "Sereal" => "0";
 requires "perl" => "5.024";
+requires "Moo" => "0";
+requires "Types::Standard" => "0";
 
 on 'test' => sub {
   requires "ExtUtils::MakeMaker" => "0";
