@@ -4,7 +4,7 @@ CPAN::Testers::Backend - Backend processes for CPAN Testers data and operations
 
 # VERSION
 
-version 0.003
+version 0.004
 
 # DESCRIPTION
 
@@ -36,6 +36,7 @@ Doug Bell <preaction@cpan.org>
 
 - James E Keenan <jkeenan@cpan.org>
 - Joel Berger <joel.a.berger@gmail.com>
+- Mohammad S Anwar <mohammad.anwar@yahoo.com>
 
 # COPYRIGHT AND LICENSE
 
