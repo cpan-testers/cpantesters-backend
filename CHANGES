@@ -2,6 +2,8 @@ Changelog for CPAN-Testers-Backend
 
 {{ $NEXT }}
 
+0.004     2018-01-16 16:03:56-06:00 America/Chicago
+
     [Added]
 
     - Added CPAN::Testers::Backend::Fix::TesterNoname to fix testers who

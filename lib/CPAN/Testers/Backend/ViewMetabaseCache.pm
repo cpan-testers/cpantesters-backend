@@ -1,5 +1,5 @@
 package CPAN::Testers::Backend::ViewMetabaseCache;
-our $VERSION = '0.004';
+our $VERSION = '0.005';
 # ABSTRACT: View an entry from the old metabase cache
 
 =head1 SYNOPSIS
