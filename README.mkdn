@@ -4,7 +4,7 @@ CPAN::Testers::Backend - Backend processes for CPAN Testers data and operations
 
 # VERSION
 
-version 0.004
+version 0.005
 
 # DESCRIPTION
 
