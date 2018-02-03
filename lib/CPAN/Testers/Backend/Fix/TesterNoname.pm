@@ -1,5 +1,5 @@
 package CPAN::Testers::Backend::Fix::TesterNoname;
-our $VERSION = '0.005';
+our $VERSION = '0.006';
 # ABSTRACT: Fix a tester with "NONAME" as a name
 
 =head1 SYNOPSIS

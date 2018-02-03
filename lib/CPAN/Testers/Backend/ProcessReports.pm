@@ -1,5 +1,5 @@
 package CPAN::Testers::Backend::ProcessReports;
-our $VERSION = '0.005';
+our $VERSION = '0.006';
 # ABSTRACT: Process an incoming test report into useful statistics
 
 =head1 SYNOPSIS
