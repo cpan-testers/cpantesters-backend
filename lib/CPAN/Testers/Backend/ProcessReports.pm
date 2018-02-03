@@ -114,6 +114,7 @@ sub run( $self, @args ) {
             next;
         }
         $self->write_metabase_cache( $report, $stat );
+        $self->write_builder_update( $stat );
     }
 
     $LOG->info("Skipped $skipped unprocessed report(s)") if $skipped;
@@ -271,6 +272,30 @@ sub write_metabase_cache( $self, $report_row, $stat_row ) {
     );
 
     return;
+}
+
+=method write_builder_update
+
+    $self->write_builder_update( $stat_row );
+
+Write entries to the C<page_requests> table to tell the legacy webapp
+report builders that they need to update the static data caches for this
+distribution and this distribution's author.
+
+=cut
+
+sub write_builder_update( $self, $stat ) {
+    my $upload_row = $self->schema->resultset( 'Upload' )->search({
+        dist => $stat->dist,
+        version => $stat->version,
+    })->first;
+    my $sql = 'INSERT INTO page_requests ( type, name, weight, id ) VALUES ( ?, ?, ?, ? )';
+    my $sub = sub( $storage, $dbh, @values ) {
+        $dbh->do( $sql, {}, @values );
+    };
+    my $storage = $self->schema->storage;
+    $storage->dbh_do( $sub, 'author', $upload_row->author, 1, $stat->id );
+    $storage->dbh_do( $sub, 'distro', $stat->dist, 1, $stat->id );
 }
 
 1;
