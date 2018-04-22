@@ -1,0 +1,16 @@
+
+$summary: Routines working with the CPAN mirror
+
+common:
+    $class: Beam::Wire
+    file: common.yml
+
+cpan_root: /home/cpan/CPAN
+
+perl_version:
+    $class: CPAN::Testers::Backend::ProcessPerlVersion
+    schema:
+        $ref: common/schema
+    cpan_root:
+        $ref: cpan_root
+
