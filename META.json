@@ -61,6 +61,7 @@
             "File::Spec" : "0",
             "IO::Handle" : "0",
             "IPC::Open3" : "0",
+            "Mock::MonkeyPatch" : "0",
             "Test::More" : "1.001005"
          }
       }
