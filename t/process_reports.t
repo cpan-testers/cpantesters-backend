@@ -19,6 +19,7 @@ use CPAN::Testers::Backend::Base 'Test';
 use Mock::MonkeyPatch;
 use CPAN::Testers::Schema;
 use CPAN::Testers::Backend::ProcessReports;
+use DBI;
 eval { require Test::mysqld } or plan skip_all => 'Requires Test::mysqld';
 
 my $mysqld = Test::mysqld->new(
@@ -43,7 +44,6 @@ CREATE TABLE `page_requests` (
   `id` int(10) unsigned DEFAULT '0'
 )});
 
-use DBI;
 my $metabase_dbh = DBI->connect( 'dbi:SQLite::memory:', undef, undef, { RaiseError => 1 } );
 $metabase_dbh->do(q{
     CREATE TABLE `metabase` (
