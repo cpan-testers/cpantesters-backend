@@ -20,6 +20,7 @@ use Mock::MonkeyPatch;
 use CPAN::Testers::Schema;
 use CPAN::Testers::Backend::ProcessReports;
 use DBI;
+use DBI::Const::GetInfoType;
 eval { require Test::mysqld } or plan skip_all => 'Requires Test::mysqld';
 
 my $mysqld = Test::mysqld->new(
@@ -27,6 +28,23 @@ my $mysqld = Test::mysqld->new(
         'skip-networking' => '', # no TCP socket
     },
 ) or plan skip_all => $Test::mysqld::errstr;
+
+# require a MySQL or MariaDB version with JSON support
+my $mysql_dbh           = DBI->connect( $mysqld->dsn( dbname => 'test' ) );
+my $dbms_version_string = $mysql_dbh->get_info( $GetInfoType{SQL_DBMS_VER} );
+my $is_mariadb          = $dbms_version_string =~ /MariaDB/ ? 1 : 0;
+my ($dbms_version)      = $dbms_version_string =~ /(\d+\.\d+)*/;
+
+if ($is_mariadb) {
+    my $min_version_with_json = 10.2;
+    plan skip_all => "Require at least MariaDB version $min_version_with_json"
+      if ( $dbms_version < $min_version_with_json );
+}
+else {
+    my $min_version_with_json = 5.7;
+    plan skip_all => "Require at least MySQL version $min_version_with_json"
+      if $dbms_version < $min_version_with_json;
+}
 
 my $class = 'CPAN::Testers::Backend::ProcessReports';
 my $schema = CPAN::Testers::Schema->connect(
