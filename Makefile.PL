@@ -39,6 +39,7 @@ my %WriteMakefileArgs = (
     "File::Spec" => 0,
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
+    "Mock::MonkeyPatch" => 0,
     "Test::More" => "1.001005"
   },
   "VERSION" => "0.006",
@@ -68,6 +69,7 @@ my %FallbackPrereqs = (
   "Minion" => 8,
   "Minion::Backend::SQLite" => 0,
   "Minion::Backend::mysql" => "0.12",
+  "Mock::MonkeyPatch" => 0,
   "Sereal" => 0,
   "Test::More" => "1.001005"
 );
