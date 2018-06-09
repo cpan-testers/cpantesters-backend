@@ -1,8 +1,5 @@
 sudo: required
 language: perl
-perl:
-    - "5.24"
-    - "blead"
 
 matrix:
     include:
