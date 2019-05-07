@@ -97,7 +97,7 @@ task deploy_dev =>
             source => $dist;
 
         Rex::Logger::info( 'Installing ' . $dist );
-        run 'source ~/.profile; cpanm -v ~/dist/' . $dist;
+        run 'source ~/.profile; cpanm -v --notest ~/dist/' . $dist;
         if ( $? ) {
             say last_command_output;
         }
@@ -122,6 +122,17 @@ my %cron_entry = (
         month => '*',
         day_of_week => '*',
         command => 'beam run report process >>$HOME/var/log/report/process.log 2>&1',
+    },
+    'fetch-uploads' => {
+        user => 'cpantesters',
+        minute => '*/10',
+        hour => '*',
+        day_of_month => '*',
+        month => '*',
+        day_of_week => '*',
+        command => 'beam run metacpan fetch_uploads'
+            . ' --since $( date --date="30 minutes ago" -Iseconds )'
+            . ' >>$HOME/var/log/fetch_uploads.log 2>&1',
     },
 );
 

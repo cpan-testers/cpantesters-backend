@@ -1,0 +1,12 @@
+
+$summary: Routines working with MetaCPAN
+
+common:
+    $class: Beam::Wire
+    file: common.yml
+
+fetch_uploads:
+    $class: CPAN::Testers::Backend::FetchUploads
+    schema:
+        $ref: common/schema
+
