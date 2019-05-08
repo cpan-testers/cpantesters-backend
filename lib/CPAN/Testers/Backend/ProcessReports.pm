@@ -118,6 +118,7 @@ sub run( $self, @args ) {
     }
 
     $LOG->info("Skipped $skipped unprocessed report(s)") if $skipped;
+    return $skipped ? 1 : 0;
 }
 
 =method find_unprocessed_reports
