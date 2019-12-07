@@ -87,6 +87,13 @@ my $pr = $class->new(
     metabase_dbh => $metabase_dbh,
 );
 
+$schema->resultset( 'PerlVersion' )->create({
+    version => '5.22.2',
+});
+$schema->resultset( 'PerlVersion' )->create({
+    version => '5.20.1',
+});
+
 $schema->resultset('Upload')->create({
     uploadid => 169497,
     type => 'cpan',
