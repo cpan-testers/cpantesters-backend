@@ -12,7 +12,7 @@ process:
         $ref: common/schema
     metabase_dbh:
         $ref: common/metabase_dbh
-    pid_file: /home/cpantesters/var/run/report/process.pid
+    pid_file: ~/var/run/report/process.pid
 
 queue:
     $class: CPAN::Testers::Backend::ProcessReports
