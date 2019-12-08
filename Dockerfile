@@ -17,5 +17,8 @@ RUN dzil install --install-command "cpanm -v ."
 
 COPY ./etc/docker/backend/my.cnf ./.cpanstats.cnf
 COPY ./etc/container ./etc/container
-ENV BEAM_PATH=./etc/container
+ENV BEAM_PATH=./etc/container \
+    BEAM_MINION='mysql+dsn+dbi:mysql:mysql_read_default_file=~/.cpanstats.cnf;mysql_read_default_group=application' \
+    MOJO_PUBSUB_EXPERIMENTAL=1 \
+    MOJO_MAX_MESSAGE_SIZE=33554432
 CMD [ "beam", "minion", "worker" ]
