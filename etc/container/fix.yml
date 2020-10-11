@@ -4,8 +4,8 @@ common:
     $class: Beam::Wire
     file: common.yml
 
-tester_name:
-    $class: CPAN::Testers::Backend::Fix::TesterName
+tester_info:
+    $class: CPAN::Testers::Backend::Fix::TesterInfo
     schema:
         $ref: common/schema
     metabase_dbh:
