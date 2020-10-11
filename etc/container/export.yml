@@ -1,0 +1,11 @@
+$summary: Routines to export data
+
+common:
+    $class: Beam::Wire
+    file: common.yml
+
+metabase:
+    $class: CPAN::Testers::Backend::Export::Metabase
+    metabase_dbh:
+        $ref: common/metabase_dbh
+
