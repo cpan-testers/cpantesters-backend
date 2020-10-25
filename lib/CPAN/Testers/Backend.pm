@@ -26,10 +26,31 @@ L<Beam::Runner>, L<Beam::Wire>
 
 =cut
 
-use strict;
-use warnings;
+use CPAN::Testers::Backend::Base;
+use Exporter qw( import );
+use DBI;
+use DBI::Const::GetInfoType;
 
+our @EXPORT_OK = qw( check_mysql );
 
+sub check_mysql( $dbh ) {
+    # require a MySQL or MariaDB version with JSON support
+    my $dbms_version_string = $dbh->get_info( $GetInfoType{SQL_DBMS_VER} );
+    my $is_mariadb          = $dbms_version_string =~ /MariaDB/ ? 1 : 0;
+    my ($dbms_version)      = $dbms_version_string =~ /(\d+\.\d+)*/;
+
+    if ($is_mariadb) {
+        my $min_version_with_json = 10.2;
+        die "The CPAN Testers backend requires at least MariaDB version $min_version_with_json"
+          if ( $dbms_version < $min_version_with_json );
+    }
+    else {
+        my $min_version_with_json = 5.7;
+        die "The CPAN Testers backend requires at least MySQL version $min_version_with_json"
+          if $dbms_version < $min_version_with_json;
+    }
+    return 1;
+}
 
 1;
 

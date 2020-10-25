@@ -52,7 +52,9 @@ our %IMPORT_BUNDLES = (
         'Getopt::Long' => [qw( GetOptionsFromArray )],
     ],
     Test => [
+        'Test::Lib',
         'Test::More',
+        'CPAN::Testers::Backend::Test' => [qw( build_test_mysqld build_test_schema build_test_metabase )],
     ],
 );
 
