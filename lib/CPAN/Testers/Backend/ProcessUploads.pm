@@ -22,7 +22,7 @@ use warnings;
 use Moo;
 use experimental 'signatures', 'postderef';
 use Log::Any '$LOG';
-use Types::Standard qw( InstanceOf RegExp );
+use Types::Standard qw( InstanceOf RegexpRef );
 use Types::Path::Tiny qw( AbsPath );
 with 'Beam::Runnable';
 use CPAN::DistnameInfo;
@@ -74,8 +74,8 @@ Defaults to allowing: C<.tar.gz>, C<.tar.bz2>, C<.tgz>, and C<.zip>.
 
 has dist_ext => (
     is => 'ro',
-    isa => RegExp,
-    default => qr{\.(tar\.(gz|bz2)|tgz|zip)$},
+    isa => RegexpRef,
+    default => sub { qr{\.(tar\.(gz|bz2)|tgz|zip)$} },
 );
 
 =method run

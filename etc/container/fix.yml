@@ -11,3 +11,8 @@ tester_info:
     metabase_dbh:
         $ref: common/metabase_dbh
 
+uploads_duplicates:
+    $class: CPAN::Testers::Backend::Fix::UploadsDuplicates
+    schema:
+        $ref: common/schema
+

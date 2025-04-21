@@ -95,11 +95,15 @@ sub run( $self, @args ) {
             released => $date_format->parse_datetime( $release->date ),
             type => 'cpan',
         );
+        if (!$info->dist) {
+          $LOG->warnf('Unable to parse archive %s. Skipping!', $release->archive);
+          next;
+        }
         if ( $upload_rs->search({ %upload{qw( dist version author filename )} })->count ) {
             $skipped++;
         }
         else {
-            $upload_rs->create( \%upload );
+            $upload_rs->update_or_create( \%upload );
             $added++;
         }
     }

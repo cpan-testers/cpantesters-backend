@@ -106,10 +106,11 @@ sub run( $self, @args ) {
         local $@;
         my $stat;
         my $success = eval { $stat = $stats->insert_test_report($report); 1 };
+        my $error = $@;
         unless ($success) {
             my $guid = $report->id;
             $LOG->warn("Unable to process report GUID $guid. Skipping.");
-            $LOG->debug("Error: $@");
+            $LOG->debug("Error: $error");
             $skipped++;
             next;
         }

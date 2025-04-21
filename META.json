@@ -4,7 +4,7 @@
       "Doug Bell <preaction@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 6.010, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Dist::Zilla version 6.030, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -36,13 +36,15 @@
             "Beam::Runner" : "0.013",
             "Beam::Wire" : "1.020",
             "CPAN::Testers::Report" : "0",
-            "CPAN::Testers::Schema" : "0.018",
+            "CPAN::Testers::Schema" : "0.023",
             "DBI" : "0",
             "Data::FlexSerializer" : "0",
+            "DateTime::Format::ISO8601" : "0",
             "Getopt::Long" : "2.36",
             "Import::Base" : "0.012",
             "JSON::MaybeXS" : "0",
             "Log::Any" : "1.046",
+            "MetaCPAN::Client" : "0",
             "Metabase::User::Profile" : "0",
             "Minion" : "8",
             "Minion::Backend::SQLite" : "0",
@@ -62,6 +64,7 @@
             "IO::Handle" : "0",
             "IPC::Open3" : "0",
             "Mock::MonkeyPatch" : "0",
+            "Test::Lib" : "0",
             "Test::More" : "1.001005"
          }
       }
@@ -69,31 +72,55 @@
    "provides" : {
       "CPAN::Testers::Backend" : {
          "file" : "lib/CPAN/Testers/Backend.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "CPAN::Testers::Backend::Base" : {
          "file" : "lib/CPAN/Testers/Backend/Base.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
-      "CPAN::Testers::Backend::Fix::TesterNoname" : {
-         "file" : "lib/CPAN/Testers/Backend/Fix/TesterNoname.pm",
-         "version" : "0.005"
+      "CPAN::Testers::Backend::Export::Metabase" : {
+         "file" : "lib/CPAN/Testers/Backend/Export/Metabase.pm",
+         "version" : "0.006"
+      },
+      "CPAN::Testers::Backend::FetchUploads" : {
+         "file" : "lib/CPAN/Testers/Backend/FetchUploads.pm",
+         "version" : "0.006"
+      },
+      "CPAN::Testers::Backend::Fix::TesterInfo" : {
+         "file" : "lib/CPAN/Testers/Backend/Fix/TesterInfo.pm",
+         "version" : "0.006"
+      },
+      "CPAN::Testers::Backend::Fix::UploadsDuplicates" : {
+         "file" : "lib/CPAN/Testers/Backend/Fix/UploadsDuplicates.pm",
+         "version" : "0.006"
       },
       "CPAN::Testers::Backend::Migrate::MetabaseCache" : {
          "file" : "lib/CPAN/Testers/Backend/Migrate/MetabaseCache.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       },
       "CPAN::Testers::Backend::Migrate::MetabaseUsers" : {
          "file" : "lib/CPAN/Testers/Backend/Migrate/MetabaseUsers.pm",
-         "version" : "0.005"
+         "version" : "0.006"
+      },
+      "CPAN::Testers::Backend::ProcessPerlVersion" : {
+         "file" : "lib/CPAN/Testers/Backend/ProcessPerlVersion.pm",
+         "version" : "0.006"
       },
       "CPAN::Testers::Backend::ProcessReports" : {
          "file" : "lib/CPAN/Testers/Backend/ProcessReports.pm",
-         "version" : "0.005"
+         "version" : "0.006"
+      },
+      "CPAN::Testers::Backend::ProcessUploads" : {
+         "file" : "lib/CPAN/Testers/Backend/ProcessUploads.pm",
+         "version" : "0.006"
+      },
+      "CPAN::Testers::Backend::UpdateReleaseSummary" : {
+         "file" : "lib/CPAN/Testers/Backend/UpdateReleaseSummary.pm",
+         "version" : "0.006"
       },
       "CPAN::Testers::Backend::ViewMetabaseCache" : {
          "file" : "lib/CPAN/Testers/Backend/ViewMetabaseCache.pm",
-         "version" : "0.005"
+         "version" : "0.006"
       }
    },
    "release_status" : "stable",
@@ -108,13 +135,16 @@
          "web" : "https://github.com/cpan-testers/cpantesters-backend"
       }
    },
-   "version" : "0.005",
+   "version" : "0.006",
    "x_authority" : "cpan:PREACTION",
    "x_contributors" : [
       "James E Keenan <jkeenan@cpan.org>",
       "Joel Berger <joel.a.berger@gmail.com>",
-      "Mohammad S Anwar <mohammad.anwar@yahoo.com>"
+      "Mohammad S Anwar <mohammad.anwar@yahoo.com>",
+      "Paul Cochrane <paul@liekut.de>"
    ],
-   "x_serialization_backend" : "Cpanel::JSON::XS version 3.0216"
+   "x_generated_by_perl" : "v5.28.0",
+   "x_serialization_backend" : "Cpanel::JSON::XS version 4.06",
+   "x_spdx_expression" : "Artistic-1.0-Perl OR GPL-1.0-or-later"
 }
 

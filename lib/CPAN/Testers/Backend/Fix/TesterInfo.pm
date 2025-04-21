@@ -92,9 +92,10 @@ sub run( $self, @args ) {
         });
 
     my $rs = $self->schema->resultset( 'TestReport' )
-        ->search({ report => \qq{->>"\$.reporter.name" LIKE '$opt{like}'} });
-    $rs->update({ report => \qq{JSON_SET( report, '\$.reporter.name', '$name' )} });
-    $rs->update({ report => \qq{JSON_SET( report, '\$.reporter.email', '$email' )} });
+        ->search({ report => \[ q{->>"$.reporter.name" LIKE ?}, $opt{like} ] });
+    $rs->update({ report => \[
+        q{JSON_SET( report, '$.reporter.name', ?, '$.reporter.email', ? )}, $name, $email,
+    ]});
 
     # Update old testers_email
     $self->metabase_dbh->do(
