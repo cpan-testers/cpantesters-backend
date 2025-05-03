@@ -105,7 +105,7 @@ row hashrefs for reports that are not in the main test report table
 sub find_unprocessed_entries( $self ) {
     my @ids;
     my $i = 0;
-    my $page = 10000;
+    my $page = 1000;
     my $current_page = $self->metabase_dbh->selectcol_arrayref(
         'SELECT guid FROM metabase LIMIT ' . $page . ' OFFSET ' . $i
     );
@@ -116,7 +116,7 @@ sub find_unprocessed_entries( $self ) {
             }
         } )->get_column( 'id' )->all;
         push @ids, grep !$found{ $_ }, @$current_page;
-        $i += 1000;
+        $i += $page;
         $current_page = $self->metabase_dbh->selectcol_arrayref(
             'SELECT guid FROM metabase LIMIT ' . $page . ' OFFSET ' . $i
         );
