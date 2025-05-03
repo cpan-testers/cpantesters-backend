@@ -38,7 +38,7 @@ L<CPAN::Testers::Backend>, L<CPAN::Testers::Schema>, L<Beam::Runnable>
 use v5.24;
 use warnings;
 use Moo;
-use experimental 'signatures', 'postderef';
+use experimental qw( signatures postderef );
 use Types::Standard qw( Str InstanceOf );
 use Log::Any '$LOG';
 with 'Beam::Runnable';

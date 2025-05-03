@@ -16,7 +16,7 @@ data (via L<CPAN::Testers::Schema::Result::Release>).
 use v5.24;
 use warnings;
 use Moo;
-use experimental 'signatures', 'postderef';
+use experimental qw( signatures postderef );
 use Log::Any '$LOG';
 use Types::Standard qw( InstanceOf );
 with 'Beam::Runnable';

@@ -20,7 +20,7 @@ distribution name, version, and author.
 use v5.24;
 use warnings;
 use Moo;
-use experimental 'signatures', 'postderef';
+use experimental qw( signatures postderef );
 use Log::Any '$LOG';
 use Types::Standard qw( InstanceOf RegexpRef );
 use Types::Path::Tiny qw( AbsPath );
