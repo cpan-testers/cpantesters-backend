@@ -12,21 +12,21 @@ This distribution contains various backend scripts (inside runnable
 modules) that process CPAN Testers data to support the APIs and website.
 
 The runnable modules are all in the `CPAN::Testers::Backend::` namespace,
-and are configured into executable tasks by [Beam::Wire](https://metacpan.org/pod/Beam::Wire) configuration files
-located in `etc/container`. The tasks are run using [Beam::Runner](https://metacpan.org/pod/Beam::Runner), which
+and are configured into executable tasks by [Beam::Wire](https://metacpan.org/pod/Beam%3A%3AWire) configuration files
+located in `etc/container`. The tasks are run using [Beam::Runner](https://metacpan.org/pod/Beam%3A%3ARunner), which
 contains the [beam](https://metacpan.org/pod/beam) command.
 
 # OVERVIEW
 
 ## Logging
 
-All processes should use [Log::Any](https://metacpan.org/pod/Log::Any) to log important information. Logs will
-be directed to syslog using [Log::Any::Adapter::Syslog](https://metacpan.org/pod/Log::Any::Adapter::Syslog), configured by
+All processes should use [Log::Any](https://metacpan.org/pod/Log%3A%3AAny) to log important information. Logs will
+be directed to syslog using [Log::Any::Adapter::Syslog](https://metacpan.org/pod/Log%3A%3AAny%3A%3AAdapter%3A%3ASyslog), configured by
 `etc/container/common.yml`.
 
 # SEE ALSO
 
-[Beam::Runner](https://metacpan.org/pod/Beam::Runner), [Beam::Wire](https://metacpan.org/pod/Beam::Wire)
+[Beam::Runner](https://metacpan.org/pod/Beam%3A%3ARunner), [Beam::Wire](https://metacpan.org/pod/Beam%3A%3AWire)
 
 # AUTHOR
 
