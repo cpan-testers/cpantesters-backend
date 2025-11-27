@@ -1,0 +1,8 @@
+syslog:
+  $class: Log::Any::Adapter
+  $lifecycle: eager
+  $method: set
+  $args:
+    - Syslog
+    - options
+    - pid,perror

@@ -1,12 +1,14 @@
-
 $summary: Routines working with MetaCPAN
 
-common:
-    $class: Beam::Wire
-    file: common.yml
+log:
+  $class: Beam::Wire
+  file: log.yml
+
+db:
+  $class: Beam::Wire
+  file: db.yml
 
 fetch_uploads:
-    $class: CPAN::Testers::Backend::FetchUploads
-    schema:
-        $ref: common/schema
-
+  $class: CPAN::Testers::Backend::FetchUploads
+  schema:
+    $ref: db/schema

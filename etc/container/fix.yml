@@ -1,18 +1,21 @@
 $summary: Routines to fix data problems
 
-common:
-    $class: Beam::Wire
-    file: common.yml
+log:
+  $class: Beam::Wire
+  file: log.yml
+
+db:
+  $class: Beam::Wire
+  file: db.yml
 
 tester_info:
-    $class: CPAN::Testers::Backend::Fix::TesterInfo
-    schema:
-        $ref: common/schema
-    metabase_dbh:
-        $ref: common/metabase_dbh
+  $class: CPAN::Testers::Backend::Fix::TesterInfo
+  schema:
+    $ref: db/schema
+  metabase_dbh:
+    $ref: db/metabase_dbh
 
 uploads_duplicates:
-    $class: CPAN::Testers::Backend::Fix::UploadsDuplicates
-    schema:
-        $ref: common/schema
-
+  $class: CPAN::Testers::Backend::Fix::UploadsDuplicates
+  schema:
+    $ref: db/schema

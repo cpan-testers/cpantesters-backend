@@ -1,16 +1,18 @@
-
 $summary: Routines working with the CPAN mirror
 
-common:
-    $class: Beam::Wire
-    file: common.yml
+log:
+  $class: Beam::Wire
+  file: log.yml
+
+db:
+  $class: Beam::Wire
+  file: db.yml
 
 cpan_root: /home/cpan/CPAN
 
 perl_version:
-    $class: CPAN::Testers::Backend::ProcessPerlVersion
-    schema:
-        $ref: common/schema
-    cpan_root:
-        $ref: cpan_root
-
+  $class: CPAN::Testers::Backend::ProcessPerlVersion
+  schema:
+    $ref: db/schema
+  cpan_root:
+    $ref: cpan_root

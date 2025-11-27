@@ -1,20 +1,23 @@
 $summary: Routines to migrate data to/from other databases
 
-common:
-    $class: Beam::Wire
-    file: common.yml
+log:
+  $class: Beam::Wire
+  file: log.yml
+
+db:
+  $class: Beam::Wire
+  file: db.yml
 
 metabase_users:
-    $class: CPAN::Testers::Backend::Migrate::MetabaseUsers
-    schema:
-        $ref: common/schema
-    metabase_dbh:
-        $ref: common/metabase_dbh
+  $class: CPAN::Testers::Backend::Migrate::MetabaseUsers
+  schema:
+    $ref: db/schema
+  metabase_dbh:
+    $ref: db/metabase_dbh
 
 metabase_cache:
-    $class: CPAN::Testers::Backend::Migrate::MetabaseCache
-    schema:
-        $ref: common/schema
-    metabase_dbh:
-        $ref: common/metabase_dbh
-
+  $class: CPAN::Testers::Backend::Migrate::MetabaseCache
+  schema:
+    $ref: db/schema
+  metabase_dbh:
+    $ref: db/metabase_dbh
