@@ -57,20 +57,6 @@ has schema => (
     required => 1,
 );
 
-=attr metabase_dbh
-
-A L<DBI> object connected to the Metabase cache. This is a legacy database
-needed for some parts of the web app and backend. When these parts are
-updated to use the new test reports, we can remove this attribute.
-
-=cut
-
-has metabase_dbh => (
-    is => 'ro',
-    isa => InstanceOf['DBI::db'],
-    required => 1,
-);
-
 =method run
 
 The main method that processes job arguments and performs the task.
@@ -114,8 +100,6 @@ sub run( $self, @args ) {
             $skipped++;
             next;
         }
-        $self->write_metabase_cache( $report, $stat );
-        $self->write_builder_update( $stat );
     }
 
     $LOG->info("Skipped $skipped unprocessed report(s)") if $skipped;
@@ -166,139 +150,4 @@ sub find_reports( $self, @ids ) {
     return $reports->all;
 }
 
-=method write_metabase_cache
-
-    $self->write_metabase_cache( $report_row, $stat_row );
-
-Write the report to the legacy metabase cache. This cache is used for
-some of the web apps and some of the backend processes. Until those
-processes are changed to use the new test report format, we need to
-maintain the old metabase cache.
-
-Once the legacy metabase cache is removed, this method can be removed
-
-=cut
-
-sub write_metabase_cache( $self, $report_row, $stat_row ) {
-    my $guid = $report_row->id;
-    my $id = $stat_row->id;
-    my $created_epoch = $report_row->created->epoch;
-    my $report = $report_row->report;
-
-    my $distname = $report->{distribution}{name};
-    my $distversion = $report->{distribution}{version};
-
-    my $upload_row = $self->schema->resultset( 'Upload' )->search({
-        dist => $distname,
-        version => $distversion,
-    })->first;
-    my $author = $upload_row->author;
-    my $distfile = sprintf '%s/%s-%s.tar.gz', $author, $distname, $distversion;
-
-    my %report = (
-        grade => $report->{result}{grade},
-        osname => $report->{environment}{system}{osname},
-        osversion => $report->{environment}{system}{osversion},
-        archname => $report->{environment}{language}{archname},
-        perl_version => $report->{environment}{language}{version},
-        textreport => (
-            $report->{result}{output}{uncategorized} ||
-            join "\n\n", grep defined, $report->{result}{output}->@{qw( configure build test install )},
-        ),
-    );
-
-    # These imports are here so they can be easily removed later
-    use Metabase::User::Profile;
-    my %creator = (
-        full_name => $report->{reporter}{name},
-        email_address => $report->{reporter}{email},
-    );
-    my $creator;
-    my ( $creator_row ) = $self->metabase_dbh->selectall_array(
-        'SELECT * FROM testers_email WHERE email=?',
-        { Slice => {} },
-        $creator{email_address},
-    );
-    if ( !$creator_row ) {
-        $creator = Metabase::User::Profile->create( %creator );
-        $self->metabase_dbh->do(
-            'INSERT INTO testers_email ( resource, fullname, email ) VALUES ( ?, ?, ? )',
-            {},
-            $creator->core_metadata->{resource},
-            $creator{ full_name },
-            $creator{ email_address },
-        );
-    }
-
-    use CPAN::Testers::Report;
-    my $metabase_report = CPAN::Testers::Report->open(
-        resource => 'cpan:///distfile/' . $distfile,
-        creator => $creator_row->{resource},
-    );
-    $metabase_report->add( 'CPAN::Testers::Fact::LegacyReport' => \%report);
-    $metabase_report->add( 'CPAN::Testers::Fact::TestSummary' =>
-        [$metabase_report->facts]->[0]->content_metadata()
-    );
-    $metabase_report->close();
-
-    # Encode it to JSON
-    my %facts;
-    for my $fact ( $metabase_report->facts ) {
-        my $name = ref $fact;
-        $facts{ $name } = $fact->as_struct;
-        $facts{ $name }{ content } = decode_json( $facts{ $name }{ content } );
-    }
-
-    # Serialize it to compress it using Data::FlexSerializer
-    # "report" gets serialized with JSON
-    use Data::FlexSerializer;
-    my $json_zipper = Data::FlexSerializer->new(
-        detect_compression  => 1,
-        detect_json         => 1,
-        output_format       => 'json'
-    );
-    my $report_zip = $json_zipper->serialize( \%facts );
-
-    # "fact" gets serialized with Sereal
-    my $sereal_zipper = Data::FlexSerializer->new(
-        detect_compression  => 1,
-        detect_sereal       => 1,
-        output_format       => 'sereal'
-    );
-    my $fact_zip = $sereal_zipper->serialize( $metabase_report );
-
-    $self->metabase_dbh->do(
-        'REPLACE INTO metabase (guid,id,updated,report,fact) VALUES (?,?,?,?,?)',
-        {},
-        $guid, $id, $created_epoch, $report_zip, $fact_zip,
-    );
-
-    return;
-}
-
-=method write_builder_update
-
-    $self->write_builder_update( $stat_row );
-
-Write entries to the C<page_requests> table to tell the legacy webapp
-report builders that they need to update the static data caches for this
-distribution and this distribution's author.
-
-=cut
-
-sub write_builder_update( $self, $stat ) {
-    my $upload_row = $self->schema->resultset( 'Upload' )->search({
-        dist => $stat->dist,
-        version => $stat->version,
-    })->first;
-    my $sql = 'INSERT INTO page_requests ( type, name, weight, id ) VALUES ( ?, ?, ?, ? )';
-    my $sub = sub( $storage, $dbh, @values ) {
-        $dbh->do( $sql, {}, @values );
-    };
-    my $storage = $self->schema->storage;
-    $storage->dbh_do( $sub, 'author', $upload_row->author, 1, $stat->id );
-    $storage->dbh_do( $sub, 'distro', $stat->dist, 1, $stat->id );
-}
-
 1;
-

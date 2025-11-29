@@ -14,13 +14,9 @@ process:
     - Beam::Runnable::Single
   schema:
     $ref: db/schema
-  metabase_dbh:
-    $ref: db/metabase_dbh
   pid_file: ~/var/run/report/process.pid
 
 queue:
   $class: CPAN::Testers::Backend::ProcessReports
   schema:
-    $ref: common/schema
-  metabase_dbh:
-    $ref: db/metabase_dbh
+    $ref: db/schema
