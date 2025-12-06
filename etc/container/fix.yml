@@ -3,10 +3,14 @@ $summary: Routines to fix data problems
 log:
   $class: Beam::Wire
   file: log.yml
+  $default:
+    file: fallback/log.yml
 
 db:
   $class: Beam::Wire
   file: db.yml
+  $default:
+    file: fallback/db.yml
 
 tester_info:
   $class: CPAN::Testers::Backend::Fix::TesterInfo

@@ -3,10 +3,14 @@ $summary: Routines to migrate data to/from other databases
 log:
   $class: Beam::Wire
   file: log.yml
+  $default:
+    file: fallback/log.yml
 
 db:
   $class: Beam::Wire
   file: db.yml
+  $default:
+    file: fallback/db.yml
 
 metabase_users:
   $class: CPAN::Testers::Backend::Migrate::MetabaseUsers

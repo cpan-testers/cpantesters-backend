@@ -3,10 +3,14 @@ $summary: Routines to export data
 log:
   $class: Beam::Wire
   file: log.yml
+  $default:
+    file: fallback/log.yml
 
 db:
   $class: Beam::Wire
   file: db.yml
+  $default:
+    file: fallback/db.yml
 
 metabase:
   $class: CPAN::Testers::Backend::Export::Metabase

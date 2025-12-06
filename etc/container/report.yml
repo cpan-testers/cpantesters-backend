@@ -3,10 +3,14 @@ $summary: Tasks to deal with test reports
 log:
   $class: Beam::Wire
   file: log.yml
+  $default:
+    file: fallback/log.yml
 
 db:
   $class: Beam::Wire
   file: db.yml
+  $default:
+    file: fallback/db.yml
 
 process:
   $class: CPAN::Testers::Backend::ProcessReports
