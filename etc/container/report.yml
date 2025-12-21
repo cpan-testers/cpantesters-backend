@@ -14,11 +14,8 @@ db:
 
 process:
   $class: CPAN::Testers::Backend::ProcessReports
-  $with:
-    - Beam::Runnable::Single
   schema:
     $ref: db/schema
-  pid_file: ~/var/run/report/process.pid
 
 queue:
   $class: CPAN::Testers::Backend::ProcessReports
