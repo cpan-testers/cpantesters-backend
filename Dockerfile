@@ -19,7 +19,6 @@ RUN --mount=type=cache,target=/root/.cpanm \
   dzil install --install-command "cpanm -v --notest ."
 
 COPY ./etc/container /app/etc/container
-RUN mkdir -p ~/var/run/report
 ENV BEAM_PATH=/app/etc/container \
     BEAM_MINION=mysql+dsn+dbi:mysql:mysql_read_default_file=/run/secrets/mysql_cnf;mysql_read_default_group=backend \
     MOJO_PUBSUB_EXPERIMENTAL=1 \
