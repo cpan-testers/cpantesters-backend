@@ -109,6 +109,7 @@ sub run( $self, @args ) {
     }
 
     say "Added $added, skipped $skipped of $total releases found";
+    return 0;
 }
 
 1;
