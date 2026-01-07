@@ -49,7 +49,11 @@ has metacpan => (
     is => 'ro',
     isa => InstanceOf['MetaCPAN::Client'],
     lazy => 1,
-    default => sub { MetaCPAN::Client->new },
+    default => sub {
+      MetaCPAN::Client->new(
+        debug => 1,
+      )
+    },
 );
 
 =method run
@@ -66,7 +70,7 @@ sub run( $self, @args ) {
     # If we have any filters
     if ( $opt{since} ) {
         @filter = (
-            es_filter => {
+            filter => {
                 and => [
                     # Specific filters added here
                     ( $opt{since} ? { range => { date => { gte => $opt{since} } } } : () ),
