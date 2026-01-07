@@ -70,7 +70,7 @@ sub run( $self, @args ) {
     # If we have any filters
     if ( $opt{since} ) {
         @filter = (
-            filter => {
+            es_filter => {
                 and => [
                     # Specific filters added here
                     ( $opt{since} ? { range => { date => { gte => $opt{since} } } } : () ),
