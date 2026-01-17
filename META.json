@@ -4,7 +4,7 @@
       "Doug Bell <preaction@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 6.033, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Dist::Zilla version 6.036, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -18,7 +18,6 @@
          "eg",
          "examples",
          "inc",
-         "old",
          "share",
          "t",
          "xt"
@@ -32,9 +31,9 @@
       },
       "runtime" : {
          "requires" : {
-            "Beam::Minion" : "0.007",
+            "Beam::Minion" : "0.017",
             "Beam::Runner" : "0.013",
-            "Beam::Wire" : "1.020",
+            "Beam::Wire" : "1.027",
             "CPAN::Testers::Report" : "0",
             "CPAN::Testers::Schema" : "0.023",
             "DBI" : "0",
@@ -44,11 +43,11 @@
             "Import::Base" : "0.012",
             "JSON::MaybeXS" : "0",
             "Log::Any" : "1.046",
-            "MetaCPAN::Client" : "0",
+            "MetaCPAN::Client" : "2.036000",
             "Metabase::User::Profile" : "0",
             "Minion" : "8",
             "Minion::Backend::SQLite" : "0",
-            "Minion::Backend::mysql" : "0.12",
+            "Minion::Backend::mysql" : "1",
             "Sereal" : "0",
             "perl" : "5.024"
          }
@@ -143,8 +142,8 @@
       "Mohammad S Anwar <mohammad.anwar@yahoo.com>",
       "Paul Cochrane <paul@liekut.de>"
    ],
-   "x_generated_by_perl" : "v5.40.2",
-   "x_serialization_backend" : "Cpanel::JSON::XS version 4.39",
+   "x_generated_by_perl" : "v5.42.0",
+   "x_serialization_backend" : "Cpanel::JSON::XS version 4.40",
    "x_spdx_expression" : "Artistic-1.0-Perl OR GPL-1.0-or-later"
 }
 

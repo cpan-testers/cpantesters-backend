@@ -5,7 +5,8 @@ RUN --mount=type=cache,target=/root/.cpanm \
   cpanm -v --notest \
     Beam::Minion \
     Minion \
-    Minion::Backend::mysql
+    Minion::Backend::mysql \
+    MetaCPAN::Client@2.036
 
 # Load last version's modules, to again cut down on rebuild time
 COPY ./cpanfile /app/cpanfile

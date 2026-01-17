@@ -71,10 +71,8 @@ sub run( $self, @args ) {
     if ( $opt{since} ) {
         @filter = (
             es_filter => {
-                and => [
-                    # Specific filters added here
-                    ( $opt{since} ? { range => { date => { gte => $opt{since} } } } : () ),
-                ],
+                # Specific filters added here
+                ( $opt{since} ? ( range => { date => { from => $opt{since} } } ) : () ),
             },
         );
     }
