@@ -44,6 +44,8 @@ use Log::Any '$LOG';
 with 'Beam::Runnable';
 use JSON::MaybeXS qw( decode_json );
 use Getopt::Long qw( GetOptionsFromArray );
+use HTTP::Tiny;
+use Scalar::Util qw( blessed );
 
 =attr schema
 
@@ -55,6 +57,36 @@ has schema => (
     is => 'ro',
     isa => InstanceOf['CPAN::Testers::Schema'],
     required => 1,
+);
+
+=attr collector
+
+A URL to a collector to look for reports. Defaults to the value of the 
+C<COLLECTOR_URL> environment variable.
+
+=cut
+
+has collector => (
+    is => 'ro',
+    isa => Str,
+    default => sub { $ENV{COLLECTOR_URL} },
+);
+
+=attr http_client
+
+An L<HTTP::Tiny> to use to talk to the collector.
+
+=cut
+
+has http_client => (
+  is => 'ro',
+  isa => InstanceOf['HTTP::Tiny'],
+  default => sub {
+    HTTP::Tiny->new(
+      agent => 'CPAN::Testers::Backend/' . $VERSION . ' ',
+      verify_SSL => 0,
+    );
+  },
 );
 
 =method run
@@ -77,7 +109,20 @@ sub run( $self, @args ) {
     }
     elsif ( @args ) {
         $LOG->info( 'Processing ' . @args . ' reports from command-line' );
-        @reports = $self->find_reports( @args );
+        for my $id ( @args ) {
+          if (my $url = $self->collector) {
+            my $res = $self->http_client->get($url . '/v1/report/' . $id);
+            if ($res->{success}) {
+              $LOG->info( 'Got report from collector', { guid => $id } );
+              push @reports, decode_json($res->{content});
+              next;
+            }
+            else {
+              $LOG->error( 'Got error from collector', { guid => $id, %{$res}{qw( status reason content )} } );
+            }
+          }
+          push @reports, $self->find_reports($id);
+        }
     }
     else {
         $LOG->info( 'Processing all unprocessed reports' );
@@ -91,10 +136,13 @@ sub run( $self, @args ) {
     for my $report (@reports) {
         local $@;
         my $stat;
-        my $success = eval { $stat = $stats->insert_test_report($report); 1 };
+        my $success = eval {
+          $stat = blessed $report ? $stats->insert_test_report($report) : $stats->insert_test_data($report);
+          1
+        };
         my $error = $@;
         unless ($success) {
-            my $guid = $report->id;
+            my $guid = blessed $report ? $report->id : $report->{id};
             $LOG->warn("Unable to process report GUID $guid. Skipping.");
             $LOG->debug("Error: $error");
             $skipped++;
@@ -120,7 +168,6 @@ sub find_unprocessed_reports( $self ) {
         id => {
             -not_in => $stats->get_column('guid')->as_query,
         },
-        report => \[ "->> '\$.environment.language.name'=?", 'Perl 5' ],
     });
     return $reports->all;
 }
@@ -137,9 +184,7 @@ L<CPAN::Testers::Schema::Result::TestReport> objects.
 =cut
 
 sub find_reports( $self, @ids ) {
-    my $reports = $self->schema->resultset( 'TestReport' )->search({
-        report => \[ "->> '\$.environment.language.name'=?", 'Perl 5' ],
-    });
+    my $reports = $self->schema->resultset( 'TestReport' );
     if ( @ids ) {
         $reports = $reports->search({
             id => {
