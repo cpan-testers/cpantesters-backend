@@ -168,6 +168,7 @@ sub find_unprocessed_reports( $self ) {
         id => {
             -not_in => $stats->get_column('guid')->as_query,
         },
+        report => \[ "->> '\$.environment.language.name'=?", 'Perl 5' ],
     });
     return $reports->all;
 }
@@ -187,6 +188,7 @@ sub find_reports( $self, @ids ) {
     my $reports = $self->schema->resultset( 'TestReport' );
     if ( @ids ) {
         $reports = $reports->search({
+            report => \[ "->> '\$.environment.language.name'=?", 'Perl 5' ],
             id => {
                 -in => \@ids,
             },
