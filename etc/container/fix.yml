@@ -23,3 +23,8 @@ uploads_duplicates:
   $class: CPAN::Testers::Backend::Fix::UploadsDuplicates
   schema:
     $ref: db/schema
+
+delete_perl6_stats:
+  $class: CPAN::Testers::Backend::Fix::DeletePerl6Stats
+  schema:
+    $ref: db/schema
