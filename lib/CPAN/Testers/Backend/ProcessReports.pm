@@ -39,13 +39,14 @@ use v5.24;
 use warnings;
 use Moo;
 use experimental qw( signatures postderef );
-use Types::Standard qw( Str InstanceOf );
+use Types::Standard qw( Maybe Str InstanceOf );
 use Log::Any '$LOG';
 with 'Beam::Runnable';
 use JSON::MaybeXS qw( decode_json );
 use Getopt::Long qw( GetOptionsFromArray );
 use HTTP::Tiny;
 use Scalar::Util qw( blessed );
+use Time::Piece;
 
 =attr schema
 
@@ -68,7 +69,7 @@ C<COLLECTOR_URL> environment variable.
 
 has collector => (
     is => 'ro',
-    isa => Str,
+    isa => Maybe[Str],
     default => sub { $ENV{COLLECTOR_URL} },
 );
 
@@ -113,8 +114,13 @@ sub run( $self, @args ) {
           if (my $url = $self->collector) {
             my $res = $self->http_client->get($url . '/v1/report/' . $id);
             if ($res->{success}) {
-              $LOG->info( 'Got report from collector', { guid => $id } );
-              push @reports, decode_json($res->{content});
+              my $report = decode_json($res->{content});
+              $report->{id} ||= $id;
+              $LOG->info( 'Got report from collector', { guid => $id, created => $report->{created} } );
+              if (!$report->{created}) {
+                $LOG->warn( 'No created data, defaulting to now', { guid => $id } );
+                $report->{created} = Time::Piece->new(scalar gmtime)->datetime . 'Z';
+              }
               next;
             }
             else {
