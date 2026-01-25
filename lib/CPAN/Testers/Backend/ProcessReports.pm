@@ -102,6 +102,7 @@ sub run( $self, @args ) {
         \@args, \my %opt,
         'force|f',
     );
+    my $skipped = 0;
 
     my @reports;
     if ( $opt{force} && !@args ) {
@@ -121,6 +122,7 @@ sub run( $self, @args ) {
                 $LOG->warn( 'No created data, defaulting to now', { guid => $id } );
                 $report->{created} = Time::Piece->new(scalar gmtime)->datetime . 'Z';
               }
+              push @reports, $report;
               next;
             }
             else {
@@ -129,6 +131,8 @@ sub run( $self, @args ) {
           }
           push @reports, $self->find_reports($id);
         }
+        $skipped = @args - @reports;
+        $LOG->info('Got reports to process', { report_count => scalar @reports, arg_count => scalar @args, missing => $skipped });
     }
     else {
         $LOG->info( 'Processing all unprocessed reports' );
@@ -136,27 +140,29 @@ sub run( $self, @args ) {
         $LOG->info('Found ' . @reports . ' unprocessed report(s)');
     }
 
+    my $processed = 0;
     my $stats = $self->schema->resultset('Stats');
-    my $skipped = 0;
-
     for my $report (@reports) {
+        my $guid = blessed $report ? $report->id : $report->{id};
         local $@;
-        my $stat;
-        my $success = eval {
-          $stat = blessed $report ? $stats->insert_test_report($report) : $stats->insert_test_data($report);
-          1
+        eval {
+          if (blessed $report) {
+            $stats->insert_test_report($report);
+          }
+          else {
+            $stats->insert_test_data($report);
+          }
         };
-        my $error = $@;
-        unless ($success) {
-            my $guid = blessed $report ? $report->id : $report->{id};
-            $LOG->warn("Unable to process report GUID $guid. Skipping.");
-            $LOG->debug("Error: $error");
+        if (my $error = $@) {
+            $LOG->error("Error processing report", { guid => $guid, error => $error});
             $skipped++;
             next;
         }
+        $LOG->info('Added stats from report', { guid => $guid });
+        $processed++;
     }
 
-    $LOG->info("Skipped $skipped unprocessed report(s)") if $skipped;
+    $LOG->info("Finished processing reports", { processed => $processed, skipped => $skipped});
     return $skipped ? 1 : 0;
 }
 

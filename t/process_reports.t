@@ -196,7 +196,7 @@ subtest run => sub {
 
         subtest 'check that the skip works' => sub {
             $LOG->contains_ok(qr'found 1'i, 'found message was logged');
-            $LOG->contains_ok(qr'skipping'i, 'individual skip message was logged');
+            $LOG->contains_ok(qr'error'i, 'individual error message was logged');
             $LOG->contains_ok(qr'skipped 1'i, 'skipped message was logged');
             my $reports = $schema->resultset('TestReport')->count;
             my $stats   = $schema->resultset('Stats')->count;
