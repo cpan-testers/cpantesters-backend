@@ -21,3 +21,8 @@ queue:
   $class: CPAN::Testers::Backend::ProcessReports
   schema:
     $ref: db/schema
+
+update_release_data:
+  $class: CPAN::Testers::Backend::UpdateReleaseSummary
+  schema:
+    $ref: db/schema
