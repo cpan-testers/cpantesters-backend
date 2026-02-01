@@ -23,6 +23,11 @@ queue:
     $ref: db/schema
 
 update_release_data:
+  $class: CPAN::Testers::Backend::UpdateReleaseData
+  schema:
+    $ref: db/schema
+
+update_release_summary:
   $class: CPAN::Testers::Backend::UpdateReleaseSummary
   schema:
     $ref: db/schema
