@@ -110,7 +110,7 @@ sub run( $self, @args ) {
         }
     }
 
-    say "Added $added, skipped $skipped of $total releases found";
+    $LOG->info('Finished fetching uploads from MetaCPAN', {total => $total, added => $added, skipped => $skipped});
     return 0;
 }
 
