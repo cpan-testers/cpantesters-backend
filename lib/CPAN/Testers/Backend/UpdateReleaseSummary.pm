@@ -20,6 +20,7 @@ use experimental qw( signatures postderef );
 use Log::Any '$LOG';
 use Types::Standard qw( InstanceOf );
 use Getopt::Long qw( GetOptionsFromArray );
+use Log::Any::Adapter Stderr =>;
 with 'Beam::Runnable';
 
 =attr schema
@@ -49,38 +50,51 @@ sub run( $self, @args ) {
     my $summary_rs = $self->schema->resultset('Release');
 
     my $from_id = 0;
+    my $max_data_id = $data_rs->get_column('id')->max();
     if (!$opt{clear}) {
       # Get the max summary stat ID from the release data table
-      my $max_data_id = $data_rs->get_column('id')->max();
       my $max_summary_id = $summary_rs->get_column('id')->max();
 
       $LOG->info('Updating release_summary table from release_data', { max_data_id => $max_data_id, max_summary_id => $max_summary_id });
       $from_id = $max_summary_id;
     }
     else {
-      $LOG->info('Rebuilding release_summary table from scratch');
+      $summary_rs->delete;
+      $from_id = $data_rs->get_column('id')->min();
+      $LOG->info('Rebuilding release_summary table from scratch', { max_data_id => $max_data_id, min_data_id => $from_id });
     }
+
+    my $batch_size = 1_000_000;
+    my $written = 0;
 
     my @total_cols = qw( pass fail na unknown );
     my $me = $data_rs->current_source_alias;
-    $data_rs = $data_rs->search( { id => { '>', $from_id }}, {
-        # The uploadid here is included to allow joins from the results
-        group_by => [ map "$me.$_", qw( dist version oncpan distmat perlmat patched uploadid ) ],
-        select => [
-            qw( dist version oncpan distmat perlmat patched uploadid ),
-            ( map { \"SUM($_) AS $_" } @total_cols ),
-            ( \sprintf 'SUM(%s) AS total', join ' + ', @total_cols )
-        ],
-        as => [ qw( dist version oncpan distmat perlmat patched uploadid ), @total_cols, 'total' ],
-        order_by => undef,
-    } );
+    while ($from_id <= $max_data_id) {
+      my $to_id = $from_id + $batch_size;
+      $LOG->info('Fetching batch of data', { from_id => $from_id, to_id => $to_id });
+      my $data_rs = $self->schema->resultset('ReleaseStat')->search( { id => { '>', $from_id, '<=', $to_id }}, {
+          # The uploadid here is included to allow joins from the results
+          group_by => [ map "$me.$_", qw( dist version oncpan distmat perlmat patched uploadid ) ],
+          select => [
+              qw( dist version oncpan distmat perlmat patched uploadid ),
+              ( map { \"SUM($_) AS $_" } @total_cols ),
+              ( \sprintf 'SUM(%s) AS total', join ' + ', @total_cols ),
+              \"MAX(id) AS id", \"MAX(guid) AS guid",
+          ],
+          as => [ qw( dist version oncpan distmat perlmat patched uploadid ), @total_cols, 'total', 'id', 'guid' ],
+          order_by => undef,
+      });
 
-    my $written = 0;
-    while (my $row = $data_rs->next) {
-      my %row = $row->get_columns;
-      my $summary_row = $summary_rs->find_or_create({%row{qw(dist version oncpan distmat perlmat patched uploadid)}});
-      $summary_row->update({%row{qw(id guid pass fail na unknown)}});
-      $written++;
+      while (my $row = $data_rs->next) {
+        my %row = $row->get_columns;
+        my $summary_row = $summary_rs->find_or_create({%row{qw(id guid dist version oncpan distmat perlmat patched uploadid)}}, {key => 'summary'});
+        $summary_row->update({
+            %row{qw(id guid )},
+            map { $_ => $row{$_} + ($summary_row->$_ // 0) } @total_cols,
+        });
+        $written++;
+      }
+      $from_id = $to_id;
     }
 
     $LOG->info('Finished', { written => $written });

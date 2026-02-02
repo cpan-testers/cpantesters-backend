@@ -20,6 +20,7 @@ use experimental qw( signatures postderef );
 use Log::Any '$LOG';
 use Types::Standard qw( InstanceOf );
 with 'Beam::Runnable';
+use Log::Any::Adapter Stderr =>;
 
 =attr schema
 
